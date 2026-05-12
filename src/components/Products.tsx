@@ -209,9 +209,9 @@ export default function Products() {
 
                     {/* CTA */}
                     <a
-                      href={product.id === "fidelizacion" ? "https://fideliza.app" : "#preview"}
-                      target={product.id === "fidelizacion" ? "_blank" : undefined}
-                      rel={product.id === "fidelizacion" ? "noopener noreferrer" : undefined}
+                      href={product.id === "fidelizacion" ? "https://fideliza.app" : "https://pos-modular-lemon.vercel.app"}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className={`inline-flex items-center gap-2 text-sm font-bold transition-all duration-200 ${product.accentColor} hover:gap-3`}
                     >
                       {product.cta}
