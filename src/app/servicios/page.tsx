@@ -31,6 +31,26 @@ export const metadata: Metadata = {
       "Software y sitios web profesionales para negocios modernos. Landing pages, ecommerce, sistemas web y más.",
     siteName: "HAMCSoft",
     type: "website",
+    url: "https://hamcsoft.com/servicios",
+    locale: "es_MX",
+    images: [
+      {
+        url: "/hamcsoft.png",
+        width: 1200,
+        height: 630,
+        alt: "Catálogo de Servicios — HAMCSoft",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Catálogo de Servicios — HAMCSoft",
+    description:
+      "Software y sitios web profesionales para negocios modernos. Landing pages, ecommerce, sistemas web y más.",
+    images: ["/hamcsoft.png"],
+  },
+  alternates: {
+    canonical: "https://hamcsoft.com/servicios",
   },
 };
 

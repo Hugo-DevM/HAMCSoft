@@ -1,4 +1,20 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
+
+export const metadata: Metadata = {
+  title: "HAMCSoft — Desarrollo de Software y Soluciones Digitales",
+  description:
+    "Transformamos tu idea en software real. Landing pages, ecommerce, sistemas web, automatizaciones y más. Conoce HAMCSoft.",
+  alternates: {
+    canonical: "https://hamcsoft.com",
+  },
+  openGraph: {
+    title: "HAMCSoft — Desarrollo de Software y Soluciones Digitales",
+    description:
+      "Transformamos tu idea en software real. Landing pages, ecommerce, sistemas web, automatizaciones y más.",
+    url: "https://hamcsoft.com",
+  },
+};
 import Hero from "@/components/Hero";
 import Products from "@/components/Products";
 import Benefits from "@/components/Benefits";

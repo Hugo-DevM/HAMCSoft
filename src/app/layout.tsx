@@ -3,23 +3,65 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "HAMCSoft — Plataforma POS Empresarial Modular",
+  metadataBase: new URL("https://hamcsoft.com"),
+  title: {
+    default: "HAMCSoft — Desarrollo de Software y Soluciones Digitales",
+    template: "%s | HAMCSoft",
+  },
   description:
-    "Ecosistema de puntos de venta inteligentes para cafeterías, retail, barberías y más. Tecnología moderna, escalable y preparada para tu negocio.",
+    "Desarrollamos software a medida, sitios web profesionales, sistemas POS, ecommerce y automatizaciones para negocios modernos. Tecnología que impulsa tu crecimiento.",
   keywords: [
-    "POS", "punto de venta", "software empresarial", "cafetería", "retail",
-    "barbería", "HAMCSoft", "sistema modular", "offline POS", "SaaS"
+    "desarrollo de software",
+    "soluciones digitales",
+    "software a medida",
+    "sitios web profesionales",
+    "ecommerce",
+    "sistema POS",
+    "automatización",
+    "HAMCSoft",
+    "landing page",
+    "aplicaciones web",
   ],
+  authors: [{ name: "HAMCSoft", url: "https://hamcsoft.com" }],
+  creator: "HAMCSoft",
+  publisher: "HAMCSoft",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "HAMCSoft — Plataforma POS Empresarial Modular",
-    description: "Ecosistema de puntos de venta inteligentes y modulares.",
+    title: "HAMCSoft — Desarrollo de Software y Soluciones Digitales",
+    description:
+      "Desarrollamos software a medida, sitios web profesionales, sistemas POS, ecommerce y automatizaciones para negocios modernos.",
     siteName: "HAMCSoft",
     type: "website",
+    url: "https://hamcsoft.com",
+    locale: "es_MX",
+    images: [
+      {
+        url: "/hamcsoft.png",
+        width: 1200,
+        height: 630,
+        alt: "HAMCSoft — Desarrollo de Software y Soluciones Digitales",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "HAMCSoft — Plataforma POS Empresarial Modular",
-    description: "Ecosistema de puntos de venta inteligentes y modulares.",
+    title: "HAMCSoft — Desarrollo de Software y Soluciones Digitales",
+    description:
+      "Desarrollamos software a medida, sitios web profesionales, sistemas POS, ecommerce y automatizaciones para negocios modernos.",
+    images: ["/hamcsoft.png"],
+  },
+  alternates: {
+    canonical: "https://hamcsoft.com",
   },
 };
 
