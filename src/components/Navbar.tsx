@@ -63,6 +63,12 @@ export default function Navbar() {
     return () => observers.forEach((o) => o.disconnect());
   }, [pathname]);
 
+  // Si estamos en /servicios los anclas del home necesitan el prefijo /
+  const resolveHref = (href: string) => {
+    if (pathname !== "/" && href.startsWith("#")) return `/${href}`;
+    return href;
+  };
+
   const isActive = (link: (typeof navLinks)[number]) => {
     // Página /servicios
     if (link.href === "/servicios") return pathname === "/servicios";
@@ -142,7 +148,7 @@ export default function Navbar() {
                             {link.children.map((child) => (
                               <a
                                 key={child.label}
-                                href={child.href}
+                                href={resolveHref(child.href)}
                                 className="block px-4 py-2.5 text-sm text-gray-600 hover:text-primary-800 hover:bg-primary-50 transition-colors"
                               >
                                 {child.label}
@@ -154,7 +160,7 @@ export default function Navbar() {
                     </div>
                   ) : (
                     <a
-                      href={link.href}
+                      href={resolveHref(link.href)}
                       className={`relative block px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
                         active
                           ? "text-primary-800 bg-primary-50"
@@ -178,17 +184,19 @@ export default function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
+            {pathname !== "/servicios" && (
+              <a
+                href="#contacto"
+                className="text-sm font-medium text-gray-600 hover:text-primary-800 transition-colors px-3 py-2"
+              >
+                Contacto
+              </a>
+            )}
             <a
-              href="#contacto"
-              className="text-sm font-medium text-gray-600 hover:text-primary-800 transition-colors px-3 py-2"
-            >
-              Contacto
-            </a>
-            <a
-              href="#demo"
+              href={pathname === "/servicios" ? "#contacto-catalogo" : "#demo"}
               className="inline-flex items-center gap-2 bg-primary-800 hover:bg-primary-900 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-primary hover:shadow-lg hover:-translate-y-0.5"
             >
-              Solicitar Demo
+              {pathname === "/servicios" ? "Solicitar cotización" : "Solicitar Demo"}
             </a>
           </div>
 
@@ -219,7 +227,7 @@ export default function Navbar() {
                 return (
                   <a
                     key={link.label}
-                    href={link.href}
+                    href={resolveHref(link.href)}
                     onClick={() => setMobileOpen(false)}
                     className={`block px-4 py-3 text-base font-medium rounded-xl transition-colors ${
                       active
@@ -232,19 +240,21 @@ export default function Navbar() {
                 );
               })}
               <div className="mt-6 pt-6 border-t border-gray-100 flex flex-col gap-3">
+                {pathname !== "/servicios" && (
+                  <a
+                    href="#contacto"
+                    onClick={() => setMobileOpen(false)}
+                    className="block text-center px-4 py-3 text-sm font-medium text-gray-600 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors"
+                  >
+                    Contacto
+                  </a>
+                )}
                 <a
-                  href="#contacto"
-                  onClick={() => setMobileOpen(false)}
-                  className="block text-center px-4 py-3 text-sm font-medium text-gray-600 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors"
-                >
-                  Contacto
-                </a>
-                <a
-                  href="#demo"
+                  href={pathname === "/servicios" ? "#contacto-catalogo" : "#demo"}
                   onClick={() => setMobileOpen(false)}
                   className="block text-center bg-primary-800 text-white text-sm font-semibold px-4 py-3 rounded-xl hover:bg-primary-900 transition-colors"
                 >
-                  Solicitar Demo
+                  {pathname === "/servicios" ? "Solicitar cotización" : "Solicitar Demo"}
                 </a>
               </div>
             </nav>
