@@ -14,6 +14,7 @@ const navLinks = [
       { label: "Suite POS Modular", href: "#soluciones" },
     ],
   },
+  { label: "Servicios", href: "/servicios" },
   { label: "Beneficios", href: "#beneficios" },
   { label: "Tecnología", href: "#tecnologia" },
   { label: "Testimonios", href: "#testimonios" },
