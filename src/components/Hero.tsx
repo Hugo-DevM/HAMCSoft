@@ -210,7 +210,7 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] orb-2 pointer-events-none" />
       <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[1px] bg-gradient-to-r from-transparent via-primary-300 to-transparent opacity-50" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-32 w-full">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10 lg:py-16 w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left content */}
           <div className="space-y-8">

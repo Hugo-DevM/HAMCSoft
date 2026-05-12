@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Image from "next/image";
@@ -9,27 +10,66 @@ const navLinks = [
   {
     label: "Soluciones",
     href: "#soluciones",
+    sectionId: "soluciones",
     children: [
       { label: "Sistema de Fidelización", href: "#soluciones" },
       { label: "Suite POS Modular", href: "#soluciones" },
     ],
   },
+  { label: "Beneficios", href: "#beneficios", sectionId: "beneficios" },
+  { label: "Tecnología", href: "#tecnologia", sectionId: "tecnologia" },
+  { label: "Testimonios", href: "#testimonios", sectionId: "testimonios" },
   { label: "Servicios", href: "/servicios" },
-  { label: "Beneficios", href: "#beneficios" },
-  { label: "Tecnología", href: "#tecnologia" },
-  { label: "Testimonios", href: "#testimonios" },
 ];
 
+const sectionIds = navLinks
+  .filter((l) => l.sectionId)
+  .map((l) => l.sectionId as string);
+
 export default function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [activeSection, setActiveSection] = useState<string>("");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // IntersectionObserver para detectar sección activa
+  useEffect(() => {
+    if (pathname !== "/") return;
+
+    const observers: IntersectionObserver[] = [];
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveSection(id);
+        },
+        { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+      );
+
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, [pathname]);
+
+  const isActive = (link: (typeof navLinks)[number]) => {
+    // Página /servicios
+    if (link.href === "/servicios") return pathname === "/servicios";
+    // Links de sección en la home
+    if (link.sectionId) return activeSection === link.sectionId;
+    return false;
+  };
 
   return (
     <>
@@ -66,54 +106,74 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <ul className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <li key={link.label} className="relative">
-                {link.children ? (
-                  <div
-                    onMouseEnter={() => setActiveDropdown(link.label)}
-                    onMouseLeave={() => setActiveDropdown(null)}
-                  >
-                    <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-gray-600 hover:text-primary-800 transition-colors rounded-lg hover:bg-primary-50">
-                      {link.label}
-                      <ChevronDown
-                        size={14}
-                        className={`transition-transform duration-200 ${
-                          activeDropdown === link.label ? "rotate-180" : ""
+            {navLinks.map((link) => {
+              const active = isActive(link);
+              return (
+                <li key={link.label} className="relative">
+                  {link.children ? (
+                    <div
+                      onMouseEnter={() => setActiveDropdown(link.label)}
+                      onMouseLeave={() => setActiveDropdown(null)}
+                    >
+                      <button
+                        className={`flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
+                          active
+                            ? "text-primary-800 bg-primary-50"
+                            : "text-gray-600 hover:text-primary-800 hover:bg-primary-50"
                         }`}
-                      />
-                    </button>
-                    <AnimatePresence>
-                      {activeDropdown === link.label && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 8 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: 8 }}
-                          transition={{ duration: 0.15 }}
-                          className="absolute top-full left-0 mt-1 w-48 bg-white rounded-xl shadow-lg border border-gray-100 py-1 overflow-hidden"
-                        >
-                          {link.children.map((child) => (
-                            <a
-                              key={child.label}
-                              href={child.href}
-                              className="block px-4 py-2.5 text-sm text-gray-600 hover:text-primary-800 hover:bg-primary-50 transition-colors"
-                            >
-                              {child.label}
-                            </a>
-                          ))}
-                        </motion.div>
+                      >
+                        {link.label}
+                        <ChevronDown
+                          size={14}
+                          className={`transition-transform duration-200 ${
+                            activeDropdown === link.label ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
+                      <AnimatePresence>
+                        {activeDropdown === link.label && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 8 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 8 }}
+                            transition={{ duration: 0.15 }}
+                            className="absolute top-full left-0 mt-1 w-48 bg-white rounded-xl shadow-lg border border-gray-100 py-1 overflow-hidden"
+                          >
+                            {link.children.map((child) => (
+                              <a
+                                key={child.label}
+                                href={child.href}
+                                className="block px-4 py-2.5 text-sm text-gray-600 hover:text-primary-800 hover:bg-primary-50 transition-colors"
+                              >
+                                {child.label}
+                              </a>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className={`relative block px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
+                        active
+                          ? "text-primary-800 bg-primary-50"
+                          : "text-gray-600 hover:text-primary-800 hover:bg-primary-50"
+                      }`}
+                    >
+                      {link.label}
+                      {active && (
+                        <motion.span
+                          layoutId="nav-indicator"
+                          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-primary-600 rounded-full"
+                          transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                        />
                       )}
-                    </AnimatePresence>
-                  </div>
-                ) : (
-                  <a
-                    href={link.href}
-                    className="block px-4 py-2 text-sm font-medium text-gray-600 hover:text-primary-800 transition-colors rounded-lg hover:bg-primary-50"
-                  >
-                    {link.label}
-                  </a>
-                )}
-              </li>
-            ))}
+                    </a>
+                  )}
+                </li>
+              );
+            })}
           </ul>
 
           {/* Desktop CTA */}
@@ -154,16 +214,23 @@ export default function Navbar() {
             className="fixed inset-0 z-40 bg-white pt-16 px-6"
           >
             <nav className="flex flex-col gap-1 pt-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-primary-800 hover:bg-primary-50 rounded-xl transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const active = isActive(link);
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={`block px-4 py-3 text-base font-medium rounded-xl transition-colors ${
+                      active
+                        ? "text-primary-800 bg-primary-50"
+                        : "text-gray-700 hover:text-primary-800 hover:bg-primary-50"
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
               <div className="mt-6 pt-6 border-t border-gray-100 flex flex-col gap-3">
                 <a
                   href="#contacto"
