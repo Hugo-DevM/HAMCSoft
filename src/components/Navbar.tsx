@@ -7,23 +7,24 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import Image from "next/image";
 
 const navLinks = [
+  { label: "Inicio", href: "/", sectionId: "inicio" },
+  { label: "Beneficios", href: "#beneficios", sectionId: "beneficios" },
+  { label: "Tecnología", href: "#tecnologia", sectionId: "tecnologia" },
+  { label: "Testimonios", href: "#testimonios", sectionId: "testimonios" },
   {
     label: "Soluciones",
     href: "#soluciones",
     sectionId: "soluciones",
     children: [
-      { label: "Sistema de Fidelización", href: "#soluciones" },
-      { label: "Suite POS Modular", href: "#soluciones" },
+      { label: "Sistema de Fidelización", href: "https://www.fideliza.app/" },
+      { label: "Suite POS Modular", href: "https://pos-modular-lemon.vercel.app/" },
     ],
   },
-  { label: "Beneficios", href: "#beneficios", sectionId: "beneficios" },
-  { label: "Tecnología", href: "#tecnologia", sectionId: "tecnologia" },
-  { label: "Testimonios", href: "#testimonios", sectionId: "testimonios" },
   { label: "Servicios", href: "/servicios" },
 ];
 
 const sectionIds = navLinks
-  .filter((l) => l.sectionId)
+  .filter((l) => l.sectionId && l.sectionId !== "inicio")
   .map((l) => l.sectionId as string);
 
 export default function Navbar() {
@@ -34,7 +35,10 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState<string>("");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+      if (window.scrollY < 80) setActiveSection("");
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -70,6 +74,8 @@ export default function Navbar() {
   };
 
   const isActive = (link: (typeof navLinks)[number]) => {
+    // Inicio: activo cuando estamos en "/" y no hay ninguna sección en vista
+    if (link.href === "/") return pathname === "/" && activeSection === "";
     // Página /servicios
     if (link.href === "/servicios") return pathname === "/servicios";
     // Links de sección en la home

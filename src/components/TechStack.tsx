@@ -57,7 +57,7 @@ const principles = [
 
 export default function TechStack() {
   return (
-    <section id="tecnologia" className="py-24 lg:py-32 bg-white relative overflow-hidden">
+    <section id="tecnologia" className="py-14 lg:py-20 bg-white relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
       <div className="absolute -top-64 -right-64 w-[600px] h-[600px] orb-1 opacity-30 pointer-events-none" />
 

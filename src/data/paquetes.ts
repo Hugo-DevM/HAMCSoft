@@ -1,4 +1,22 @@
-import { Check, X } from "lucide-react";
+import {
+  Check,
+  X,
+  Sparkles,
+  Zap,
+  TrendingUp,
+  Code2,
+  Headphones,
+  Search,
+  ShieldCheck,
+  Smartphone,
+  MessageSquare,
+  ClipboardList,
+  Palette,
+  CheckCircle,
+  Rocket,
+  LifeBuoy,
+} from "lucide-react";
+import { type LucideIcon } from "lucide-react";
 
 export interface PaqueteFeature {
   label: string;
@@ -238,13 +256,19 @@ export const comparativaData: ComparativaRow[] = [
   },
 ];
 
-export const procesoData = [
+export const procesoData: {
+  step: number;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  duration: string;
+}[] = [
   {
     step: 1,
     title: "Reunión inicial",
     description:
       "Escuchamos tus necesidades, objetivos y visión del proyecto sin costo ni compromiso.",
-    icon: "💬",
+    icon: MessageSquare,
     duration: "1–2 días",
   },
   {
@@ -252,7 +276,7 @@ export const procesoData = [
     title: "Análisis del proyecto",
     description:
       "Evaluamos requerimientos técnicos, funcionales y de negocio para definir el alcance.",
-    icon: "🔍",
+    icon: ClipboardList,
     duration: "2–3 días",
   },
   {
@@ -260,7 +284,7 @@ export const procesoData = [
     title: "Diseño UI/UX",
     description:
       "Creamos prototipos y maquetas del diseño para tu aprobación antes de desarrollar.",
-    icon: "🎨",
+    icon: Palette,
     duration: "3–5 días",
   },
   {
@@ -268,7 +292,7 @@ export const procesoData = [
     title: "Desarrollo",
     description:
       "Construimos tu proyecto con código limpio, arquitectura sólida y buenas prácticas.",
-    icon: "⚡",
+    icon: Code2,
     duration: "Variable",
   },
   {
@@ -276,7 +300,7 @@ export const procesoData = [
     title: "Revisión y QA",
     description:
       "Pruebas exhaustivas de funcionalidad, rendimiento, seguridad y compatibilidad.",
-    icon: "✅",
+    icon: CheckCircle,
     duration: "2–3 días",
   },
   {
@@ -284,7 +308,7 @@ export const procesoData = [
     title: "Lanzamiento",
     description:
       "Desplegamos tu proyecto en producción con configuración de dominio y hosting optimizado.",
-    icon: "🚀",
+    icon: Rocket,
     duration: "1 día",
   },
   {
@@ -292,49 +316,53 @@ export const procesoData = [
     title: "Soporte activo",
     description:
       "Acompañamiento post-lanzamiento para resolver dudas, ajustes y actualizaciones.",
-    icon: "🛡️",
+    icon: LifeBuoy,
     duration: "Continuo",
   },
 ];
 
-export const beneficiosData = [
+export const beneficiosData: {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}[] = [
   {
-    icon: "🎨",
+    icon: Sparkles,
     title: "Diseño moderno",
     description: "Interfaces limpias, elegantes y alineadas con las tendencias actuales del diseño digital.",
   },
   {
-    icon: "⚡",
+    icon: Zap,
     title: "Entrega rápida",
     description: "Metodología ágil que nos permite entregar proyectos de calidad en los tiempos acordados.",
   },
   {
-    icon: "📈",
+    icon: TrendingUp,
     title: "Escalabilidad",
     description: "Arquitecturas preparadas para crecer. Tu sistema evoluciona con tu negocio sin rehacer todo.",
   },
   {
-    icon: "🧹",
+    icon: Code2,
     title: "Código limpio",
     description: "Desarrollamos con estándares de industria: documentado, mantenible y transferible.",
   },
   {
-    icon: "🛡️",
+    icon: Headphones,
     title: "Soporte real",
     description: "Soporte técnico humano, rápido y efectivo. Respondemos cuando más lo necesitas.",
   },
   {
-    icon: "🔍",
+    icon: Search,
     title: "SEO optimizado",
     description: "Cada proyecto se construye pensando en visibilidad orgánica desde el primer día.",
   },
   {
-    icon: "🔒",
+    icon: ShieldCheck,
     title: "Seguridad",
     description: "Implementamos HTTPS, autenticación segura, protección de datos y mejores prácticas.",
   },
   {
-    icon: "📱",
+    icon: Smartphone,
     title: "Mobile first",
     description: "Diseñamos primero para móvil. Tus usuarios tendrán una experiencia perfecta en cualquier dispositivo.",
   },

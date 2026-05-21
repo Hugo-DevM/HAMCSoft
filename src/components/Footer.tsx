@@ -14,30 +14,24 @@ import {
 
 const footerLinks = {
   Soluciones: [
-    { label: "Sistema de Fidelización", href: "#soluciones" },
-    { label: "Sistema POS General", href: "#soluciones" },
-    { label: "Módulos por sector", href: "#soluciones" },
-    { label: "Próximamente", href: "#soluciones" },
+    { label: "Sistema de Fidelización", href: "https://www.fideliza.app/" },
+    { label: "Sistema POS General", href: "https://pos-modular-lemon.vercel.app/" },
+    { label: "Próximamente", href: "/proximamente" },
   ],
   Empresa: [
-    { label: "Sobre Nosotros", href: "#" },
-    { label: "Blog", href: "#" },
-    { label: "Casos de Éxito", href: "#testimonios" },
-    { label: "Prensa", href: "#" },
-    { label: "Carreras", href: "#" },
+    { label: "Sobre Nosotros", href: "/nosotros" },
+    { label: "Casos de Éxito", href: "/#testimonios" },
   ],
   Soporte: [
-    { label: "Centro de Ayuda", href: "#" },
-    { label: "Documentación", href: "#" },
-    { label: "Estado del Sistema", href: "#" },
-    { label: "Contacto", href: "#contacto" },
-    { label: "Solicitar Demo", href: "#demo" },
+    { label: "Centro de Ayuda", href: "/ayuda" },
+    { label: "Contacto", href: "/contacto" },
+    { label: "Agendar llamada", href: `https://wa.me/523222151711?text=${encodeURIComponent("Hola, me gustaría agendar una llamada gratuita para platicar sobre un proyecto.")}` },
   ],
   Legal: [
-    { label: "Privacidad", href: "#" },
-    { label: "Términos de Uso", href: "#" },
-    { label: "Cookies", href: "#" },
-    { label: "Licencias", href: "#" },
+    { label: "Privacidad", href: "/privacidad" },
+    { label: "Términos de Uso", href: "/terminos" },
+    { label: "Cookies", href: "/cookies" },
+    { label: "Licencias", href: "/licencias" },
   ],
 };
 
@@ -49,7 +43,7 @@ const social = [
 ];
 
 const contact = [
-  { icon: Mail, text: "info@hamcsoft.com", href: "mailto:info@hamcsoft.com" },
+  { icon: Mail, text: "hamcsoftmx@gmail.com", href: "mailto:hamcsoftmx@gmail.com" },
   { icon: Phone, text: "+52 322-215-17-11", href: "tel:+523222151711" },
   {
     icon: MapPin,

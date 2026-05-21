@@ -109,7 +109,7 @@ export default function Products() {
   return (
     <section
       id="soluciones"
-      className="py-24 lg:py-32 bg-white relative overflow-hidden"
+      className="py-14 lg:py-20 bg-white relative overflow-hidden"
     >
       <div className="absolute inset-0 bg-grid opacity-30" />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />

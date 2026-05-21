@@ -44,8 +44,8 @@ export default function BeneficiosCatalogo() {
               className="group glass-card rounded-2xl p-6 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 hover:border-primary-200"
             >
               {/* Icon */}
-              <div className="text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                {beneficio.icon}
+              <div className="mb-4 group-hover:scale-110 transition-transform duration-300 w-10 h-10 rounded-xl bg-primary-50 flex items-center justify-center">
+                <beneficio.icon className="w-5 h-5 text-primary-600" strokeWidth={1.75} />
               </div>
 
               {/* Content */}

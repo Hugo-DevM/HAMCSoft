@@ -30,12 +30,12 @@ export default function Home() {
     <main className="overflow-x-hidden">
       <Navbar />
       <Hero />
-      <Products />
       <Benefits />
       <WhyUs />
       <SystemPreview />
       <TechStack />
       <Testimonials />
+      <Products />
       <CTAFinal />
       <Footer />
     </main>

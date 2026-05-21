@@ -343,7 +343,7 @@ export default function SystemPreview() {
   const posTabs = systemTabs.slice(1);
 
   return (
-    <section id="preview" className="py-24 lg:py-32 bg-gray-950 relative overflow-hidden">
+    <section id="preview" className="py-14 lg:py-20 bg-gray-950 relative overflow-hidden">
       <div className="absolute inset-0 bg-dots opacity-20" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-primary-900 opacity-10 blur-3xl" />
 

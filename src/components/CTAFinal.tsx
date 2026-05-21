@@ -18,7 +18,7 @@ export default function CTAFinal() {
   return (
     <section
       id="demo"
-      className="py-24 lg:py-32 relative overflow-hidden bg-white"
+      className="py-14 lg:py-20 relative overflow-hidden bg-white"
     >
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
 

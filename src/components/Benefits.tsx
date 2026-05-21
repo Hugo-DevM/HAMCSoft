@@ -67,7 +67,7 @@ const benefits = [
 
 export default function Benefits() {
   return (
-    <section id="beneficios" className="py-24 lg:py-32 bg-gray-50 relative overflow-hidden">
+    <section id="beneficios" className="py-14 lg:py-20 bg-gray-50 relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
 

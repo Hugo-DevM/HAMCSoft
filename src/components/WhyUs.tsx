@@ -45,7 +45,7 @@ const advantages = [
 
 export default function WhyUs() {
   return (
-    <section id="por-que-nosotros" className="py-24 lg:py-32 bg-white relative overflow-hidden">
+    <section id="por-que-nosotros" className="py-14 lg:py-20 bg-white relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] orb-1 opacity-40 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8">

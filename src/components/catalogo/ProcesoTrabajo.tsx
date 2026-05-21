@@ -50,7 +50,7 @@ export default function ProcesoTrabajo() {
               >
                 {/* Step bubble */}
                 <div className="relative z-10 w-20 h-20 rounded-2xl bg-white border border-gray-100 group-hover:border-primary-200 shadow-card group-hover:shadow-card-hover transition-all duration-300 flex flex-col items-center justify-center mb-5 group-hover:-translate-y-1">
-                  <span className="text-2xl mb-1">{step.icon}</span>
+                  <step.icon className="w-6 h-6 text-primary-600 mb-1" strokeWidth={1.75} />
                   <span className="text-xs font-bold text-primary-600">0{step.step}</span>
                 </div>
 
@@ -85,7 +85,7 @@ export default function ProcesoTrabajo() {
               >
                 {/* Bubble */}
                 <div className="relative z-10 w-16 h-16 shrink-0 rounded-2xl bg-white border border-gray-100 shadow-card flex flex-col items-center justify-center">
-                  <span className="text-xl mb-0.5">{step.icon}</span>
+                  <step.icon className="w-5 h-5 text-primary-600 mb-0.5" strokeWidth={1.75} />
                   <span className="text-xs font-bold text-primary-600">0{step.step}</span>
                 </div>
 
