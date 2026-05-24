@@ -7,12 +7,12 @@ import NosotrosContent from "./NosotrosContent";
 export const metadata: Metadata = {
   title: "Sobre Nosotros — HAMCSoft",
   description:
-    "Conoce al equipo detrás de HAMCSoft. Somos una agencia de desarrollo de software con sede en Puerto Vallarta, México, comprometida con hacer crecer los negocios en línea.",
+    "Conoce al equipo detrás de HAMCSoft. Somos una agencia de desarrollo web con sede en Puerto Vallarta, México, comprometida con hacer crecer los negocios en línea.",
   alternates: { canonical: "https://hamcsoft.com/nosotros" },
   openGraph: {
     title: "Sobre Nosotros — HAMCSoft",
     description:
-      "Conoce al equipo detrás de HAMCSoft. Desarrollo de software hecho con propósito.",
+      "Conoce al equipo detrás de HAMCSoft. Desarrollo web hecho con propósito.",
     url: "https://hamcsoft.com/nosotros",
     siteName: "HAMCSoft",
     locale: "es_MX",

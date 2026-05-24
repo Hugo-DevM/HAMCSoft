@@ -20,7 +20,7 @@ const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
 
 /* ─── Types ─────────────────────────────────────────────── */
 type EndType = "hot" | "warm" | "cold" | "disqualified";
-type ServiceType = "pos" | "fid" | "dev" | null;
+type ServiceType = "pos" | "fid" | "dev" | "web" | null;
 
 type Option = {
   label: string;
@@ -67,6 +67,12 @@ const STEPS: Record<string, Step> = {
     botMessage: "¿Qué es lo que estás buscando?",
     options: [
       {
+        label: "🌐 Sitio web / Landing page / Ecommerce",
+        value: "web",
+        next: "web_type",
+        service: "web",
+      },
+      {
         label: "🖥️ Sistema de punto de venta (POS)",
         value: "pos",
         next: "pos_business_type",
@@ -79,16 +85,10 @@ const STEPS: Record<string, Step> = {
         service: "fid",
       },
       {
-        label: "💻 Desarrollo de software a medida",
+        label: "💻 Aplicación web / Sistema a medida",
         value: "dev",
         next: "dev_idea",
         service: "dev",
-      },
-      {
-        label: "🔄 Varias cosas me interesan",
-        value: "both",
-        next: "pos_business_type",
-        service: "pos",
       },
       {
         label: "📚 Solo estoy investigando / Soy estudiante",
@@ -97,6 +97,99 @@ const STEPS: Record<string, Step> = {
       },
     ],
   },
+
+  /* ══ RAMA DESARROLLO WEB ════════════════════════════════════ */
+  web_type: {
+    id: "web_type",
+    botMessage: "¿Qué tipo de proyecto web necesitas?",
+    options: [
+      {
+        label: "🚀 Landing page de alto impacto",
+        value: "landing",
+        next: "web_timeline",
+        score: 2,
+      },
+      {
+        label: "🏢 Sitio web corporativo / Negocio local",
+        value: "corporate",
+        next: "web_timeline",
+        score: 2,
+      },
+      {
+        label: "🛒 Tienda online / Ecommerce",
+        value: "ecommerce",
+        next: "web_timeline",
+        score: 3,
+      },
+      {
+        label: "🔄 Rediseño de web existente",
+        value: "redesign",
+        next: "web_timeline",
+        score: 2,
+      },
+      {
+        label: "🤷 Aún no lo tengo claro",
+        value: "unclear",
+        next: "web_timeline",
+        score: 0,
+      },
+    ],
+  },
+  web_timeline: {
+    id: "web_timeline",
+    botMessage: "¿Para cuándo necesitas tener lista tu web?",
+    options: [
+      {
+        label: "⚡ Lo antes posible",
+        value: "asap",
+        next: "web_budget",
+        score: 4,
+      },
+      {
+        label: "📅 En el próximo mes",
+        value: "1m",
+        next: "web_budget",
+        score: 3,
+      },
+      {
+        label: "🗓️ En los próximos 3 meses",
+        value: "3m",
+        next: "web_budget",
+        score: 2,
+      },
+      {
+        label: "🤔 Aún no lo sé",
+        value: "unknown",
+        next: "web_budget",
+        score: 0,
+      },
+    ],
+  },
+  web_budget: {
+    id: "web_budget",
+    botMessage: "¿Tienes presupuesto asignado para tu proyecto web?",
+    options: [
+      {
+        label: "💰 Sí, tengo presupuesto definido",
+        value: "yes",
+        next: "result_web",
+        score: 3,
+      },
+      {
+        label: "📊 Estoy cotizando opciones",
+        value: "estimating",
+        next: "result_web",
+        score: 1,
+      },
+      {
+        label: "❓ Aún no hemos hablado de presupuesto",
+        value: "no",
+        next: "result_web",
+        score: 0,
+      },
+    ],
+  },
+  result_web: { id: "result_web", botMessage: "", isEnd: true },
 
   /* ══ RAMA POS ════════════════════════════════════════════════ */
   pos_business_type: {
@@ -455,6 +548,11 @@ const STEPS: Record<string, Step> = {
 
 /* ─── Mensajes finales por servicio ──────────────────────── */
 const FINAL_MESSAGES = {
+  web: {
+    hot: "¡Proyecto web ideal para HAMCSoft! 🚀 Nos encantaría construirlo contigo. Un especialista te contactará muy pronto.",
+    warm: "¡Tu proyecto web tiene mucho potencial! 👍 Te recomendamos una llamada para explorar cómo podemos hacerlo realidad.",
+    cold: "Gracias por compartir. Cuando estés listo para lanzar tu web, aquí estaremos. 😊",
+  },
   pos: {
     hot: "¡Excelente perfil! 🎉 Tu negocio es exactamente el tipo al que HAMCSoft genera mayor impacto. Un asesor te contactará muy pronto.",
     warm: "¡Buen perfil! 👍 Tienes potencial para aprovechar HAMCSoft al máximo. Te recomendamos una llamada sin compromiso.",
@@ -475,12 +573,16 @@ const FINAL_MESSAGES = {
 /* ─── Tarjeta final por resultado ───────────────────────── */
 const END_CONTENT: Record<
   EndType,
-  Record<"pos" | "fid" | "dev", { title: string; desc: string }> & {
+  Record<"pos" | "fid" | "dev" | "web", { title: string; desc: string }> & {
     color: string;
   }
 > = {
   hot: {
     color: "from-emerald-500 to-green-400",
+    web: {
+      title: "¡Tu web está lista para despegar!",
+      desc: "Un especialista revisará tu proyecto y te contactará muy pronto. También puedes escribirnos ahora.",
+    },
     pos: {
       title: "¡Eres un cliente ideal para HAMCSoft!",
       desc: "Un asesor se pondrá en contacto contigo muy pronto. También puedes escribirnos ahora mismo.",
@@ -496,6 +598,10 @@ const END_CONTENT: Record<
   },
   warm: {
     color: "from-primary-600 to-purple-400",
+    web: {
+      title: "¡Tu proyecto web tiene potencial!",
+      desc: "Agenda una llamada para conocer cómo podemos construir tu web juntos. Sin compromiso.",
+    },
     pos: {
       title: "¡Tienes buen potencial!",
       desc: "Te recomendamos una llamada exploratoria sin compromiso para conocer más sobre tu negocio.",
@@ -511,6 +617,10 @@ const END_CONTENT: Record<
   },
   cold: {
     color: "from-gray-500 to-gray-400",
+    web: {
+      title: "Gracias por tu interés",
+      desc: "Cuando tengas más claro tu proyecto web, aquí estaremos para ayudarte.",
+    },
     pos: {
       title: "Gracias por tu interés",
       desc: "Cuando tengas mayor claridad sobre tus planes, con gusto podemos orientarte.",
@@ -526,6 +636,10 @@ const END_CONTENT: Record<
   },
   disqualified: {
     color: "from-gray-400 to-gray-300",
+    web: {
+      title: "¡Hasta pronto!",
+      desc: "Si en el futuro necesitas un sitio web, aquí estaremos.",
+    },
     pos: {
       title: "¡Hasta pronto!",
       desc: "Si en el futuro tienes un negocio, aquí estaremos para ayudarte.",
@@ -546,7 +660,7 @@ export default function ChatBot({ onClose }: { onClose: () => void }) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [currentStep, setCurrentStep] = useState<Step>(STEPS.start);
   const [score, setScore] = useState(0);
-  const [serviceType, setServiceType] = useState<"pos" | "fid" | "dev">("pos");
+  const [serviceType, setServiceType] = useState<"pos" | "fid" | "dev" | "web">("web");
   const [endType, setEndType] = useState<EndType | null>(null);
   const [isTyping, setIsTyping] = useState(false);
   const [optionsVisible, setOptionsVisible] = useState(false);
@@ -562,7 +676,24 @@ export default function ChatBot({ onClose }: { onClose: () => void }) {
   const [sendError, setSendError] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
 
+  const chatRef = useRef<HTMLDivElement>(null);
   const initialized = useRef(false);
+
+  useEffect(() => {
+    const el = chatRef.current;
+    if (!el) return;
+    const dispatch = () =>
+      window.dispatchEvent(
+        new CustomEvent("chatbot:resize", { detail: { height: el.offsetHeight } })
+      );
+    dispatch();
+    const ro = new ResizeObserver(dispatch);
+    ro.observe(el);
+    return () => {
+      ro.disconnect();
+      window.dispatchEvent(new CustomEvent("chatbot:close"));
+    };
+  }, []);
   useEffect(() => {
     if (initialized.current) return;
     initialized.current = true;
@@ -618,16 +749,19 @@ export default function ChatBot({ onClose }: { onClose: () => void }) {
     if (
       next.id === "result_pos" ||
       next.id === "result_fid" ||
-      next.id === "result_dev"
+      next.id === "result_dev" ||
+      next.id === "result_web"
     ) {
       const svc =
         next.id === "result_dev"
           ? "dev"
           : next.id === "result_fid"
             ? "fid"
-            : "pos";
+            : next.id === "result_web"
+              ? "web"
+              : "pos";
       const thresholds =
-        svc === "dev" ? { hot: 6, warm: 3 } : { hot: 8, warm: 4 };
+        svc === "dev" || svc === "web" ? { hot: 6, warm: 3 } : { hot: 8, warm: 4 };
       const resolved: EndType =
         newScore >= thresholds.hot
           ? "hot"
@@ -704,27 +838,28 @@ export default function ChatBot({ onClose }: { onClose: () => void }) {
       },
     ]);
     setPendingResult(null);
-    setServiceType(svc);
+    setServiceType(svc as "pos" | "fid" | "dev" | "web");
 
     setTimeout(() => {
       showBotMessage(finalMsg, () => setEndType(resolved));
     }, 300);
   }
 
-  const SERVICE_LABELS: Record<"pos" | "fid" | "dev", string> = {
+  const SERVICE_LABELS: Record<"pos" | "fid" | "dev" | "web", string> = {
+    web: "Desarrollo Web",
     pos: "Sistema POS",
     fid: "Sistema de Fidelización",
-    dev: "Desarrollo de Software",
+    dev: "Aplicación / Sistema a Medida",
   };
 
   function buildWhatsAppMsg() {
-    const svc = SERVICE_LABELS[serviceType as "pos" | "fid" | "dev"];
-    return `Hola, quiero saber más sobre el ${svc} de HAMCSoft.`;
+    const svc = SERVICE_LABELS[serviceType];
+    return `Hola, quiero saber más sobre ${svc} con HAMCSoft.`;
   }
 
   const endContent = endType ? END_CONTENT[endType] : null;
   const endTexts = endContent
-    ? endContent[serviceType as "pos" | "fid" | "dev"]
+    ? endContent[serviceType]
     : null;
   const showContacts = endType === "hot" || endType === "warm";
 
@@ -734,6 +869,7 @@ export default function ChatBot({ onClose }: { onClose: () => void }) {
       animate={{ opacity: 1, scale: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95, y: 20 }}
       transition={{ duration: 0.25, ease: "easeOut" }}
+      ref={chatRef}
       className="fixed bottom-6 right-6 z-50 w-[370px] max-w-[calc(100vw-2rem)] bg-white rounded-3xl shadow-2xl flex flex-col overflow-hidden"
       style={{ maxHeight: "min(640px, calc(100vh - 3rem))" }}
     >

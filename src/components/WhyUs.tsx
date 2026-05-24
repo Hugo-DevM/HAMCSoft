@@ -5,41 +5,41 @@ import { X, Check, Trophy } from "lucide-react";
 
 const comparison = [
   {
-    category: "Enfoque del producto",
-    traditional: "Software genérico que intenta cubrir todos los negocios sin especializarse en ninguno",
-    hamcsoft: "Cada solución construida específicamente para los procesos reales de tu industria",
+    category: "Diseño web",
+    traditional: "Plantillas genéricas compradas y adaptadas. Miles de webs que se ven igual",
+    hamcsoft: "Diseño único construido desde cero según la identidad y objetivos de tu negocio",
   },
   {
     category: "Personalización",
-    traditional: "Limitado a configuraciones predefinidas. Cambios requieren licencias costosas",
-    hamcsoft: "Desarrollo a medida desde la arquitectura. Tu negocio define el producto",
+    traditional: "Limitado a lo que permite la plantilla. Cualquier cambio implica romper algo",
+    hamcsoft: "Control total sobre cada detalle — tu negocio define cómo se ve y funciona la web",
   },
   {
-    category: "Integración entre sistemas",
-    traditional: "Productos desconectados que no se comunican entre sí — silos de información",
-    hamcsoft: "Ecosistema unificado: fidelización, POS y futuros módulos integrados nativamente",
+    category: "Rendimiento y velocidad",
+    traditional: "Webs pesadas con plugins acumulados. Google Pagespeed en rojo desde el día uno",
+    hamcsoft: "Código limpio y optimizado. Core Web Vitals en verde y carga rápida garantizada",
   },
   {
-    category: "Tiempo de implementación",
-    traditional: "Meses de configuración, capacitación extensa y adopción lenta del equipo",
-    hamcsoft: "Entrega iterativa con resultados funcionales desde las primeras semanas",
+    category: "Tiempo de entrega",
+    traditional: "Semanas de ida y vuelta con revisiones interminables sin resultados visibles",
+    hamcsoft: "Proceso ágil con avances reales desde las primeras semanas y entregas en tiempo",
   },
   {
     category: "Soporte post-entrega",
-    traditional: "Soporte limitado, tickets lentos y actualizaciones escasas",
-    hamcsoft: "Acompañamiento continuo, mejoras proactivas y canal directo con el equipo",
+    traditional: "Entregan y desaparecen. Soporte por ticket con tiempos de respuesta lentos",
+    hamcsoft: "Acompañamiento continuo, canal directo con el equipo y mejoras proactivas",
   },
   {
-    category: "Escalabilidad",
-    traditional: "Costoso y disruptivo escalar. Cambiar de plan o migrar datos es un dolor",
-    hamcsoft: "Arquitectura modular diseñada para crecer sin reescribir el sistema",
+    category: "SEO y visibilidad",
+    traditional: "SEO como plugin opcional, sin estructura semántica ni optimización real",
+    hamcsoft: "SEO integrado desde la arquitectura: estructura, velocidad y metadatos optimizados",
   },
 ];
 
 const advantages = [
-  { number: "100%", label: "Código propio, sin dependencias" },
-  { number: "2", label: "Sistemas ya en portafolio" },
+  { number: "100%", label: "Diseño propio, sin plantillas" },
   { number: "0", label: "Plantillas genéricas usadas" },
+  { number: "2+", label: "Productos digitales en portafolio" },
   { number: "∞", label: "Posibilidad de personalización" },
 ];
 
@@ -62,8 +62,8 @@ export default function WhyUs() {
             La diferencia HAMCSoft
           </div>
           <h2 className="text-4xl lg:text-5xl font-black text-gray-900 tracking-tight mb-4">
-            No somos una fábrica de software.{" "}
-            <span className="gradient-text">Somos tu equipo tech.</span>
+            No somos una agencia genérica.{" "}
+            <span className="gradient-text">Somos tu equipo digital.</span>
           </h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
             Las soluciones genéricas se construyeron para el promedio.
@@ -99,7 +99,7 @@ export default function WhyUs() {
           <div className="grid grid-cols-3 bg-gray-950 text-white">
             <div className="px-6 py-4 text-sm font-semibold text-gray-400">Aspecto</div>
             <div className="px-6 py-4 text-sm font-semibold text-gray-400 border-l border-gray-800">
-              Desarrollo Tradicional / Software Genérico
+              Agencias Web Genéricas
             </div>
             <div className="px-6 py-4 border-l border-gray-800">
               <span className="text-sm font-bold gradient-text">HAMCSoft</span>
@@ -145,7 +145,7 @@ export default function WhyUs() {
           {/* Column headers */}
           <div className="grid grid-cols-2 gap-3">
             <div className="bg-gray-100 rounded-2xl px-4 py-2.5 text-center">
-              <p className="text-xs font-semibold text-gray-500">Tradicional</p>
+              <p className="text-xs font-semibold text-gray-500">Agencia Genérica</p>
             </div>
             <div className="bg-primary-800 rounded-2xl px-4 py-2.5 text-center">
               <p className="text-xs font-bold text-white">HAMCSoft</p>

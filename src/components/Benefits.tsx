@@ -9,58 +9,58 @@ import {
 const benefits = [
   {
     icon: Code2,
-    title: "Desarrollo a Medida",
+    title: "Diseño a Medida",
     description:
-      "Cada solución nace del análisis profundo de tu negocio. No adaptamos plantillas — construimos desde cero para tus procesos exactos.",
+      "No usamos plantillas genéricas. Cada sitio web nace del análisis de tu negocio — diseño y código construidos desde cero para ti.",
     color: "from-violet-500 to-primary-800",
   },
   {
     icon: Layers,
-    title: "Arquitectura Modular",
+    title: "Rendimiento Web",
     description:
-      "Diseñamos sistemas que crecen contigo. Activa funcionalidades cuando las necesitas, sin rediseñar desde cero.",
+      "Velocidad de carga optimizada, Core Web Vitals en verde y experiencia fluida en todos los dispositivos desde el primer día.",
     color: "from-blue-400 to-indigo-600",
   },
   {
     icon: Rocket,
-    title: "Entrega Ágil",
+    title: "Entrega Rápida",
     description:
-      "Metodología iterativa con entregas funcionales desde las primeras semanas. Ves resultados reales, no solo promesas.",
+      "Metodología ágil con resultados visibles desde las primeras semanas. Ves tu proyecto avanzar, no solo promesas.",
     color: "from-amber-400 to-orange-500",
   },
   {
     icon: Users,
-    title: "Enfoque en el Usuario",
+    title: "Enfocado en Conversión",
     description:
-      "Cada interfaz está diseñada para el operador real. Software que cualquier empleado puede dominar desde el primer día.",
+      "Cada página diseñada para convertir visitantes en clientes. UX, copy y estructura pensados para generar resultados.",
     color: "from-emerald-400 to-teal-600",
   },
   {
     icon: RefreshCw,
-    title: "Integración Total",
+    title: "Integraciones Llave en Mano",
     description:
-      "Nuestros sistemas se integran entre sí y con herramientas externas. Tu ecosistema tecnológico unificado y sincronizado.",
+      "Conectamos tu web con pasarelas de pago, CRMs, WhatsApp, analytics y las herramientas que ya usas en tu negocio.",
     color: "from-cyan-400 to-blue-600",
   },
   {
     icon: ShieldCheck,
-    title: "Seguridad Enterprise",
+    title: "Seguridad y Confiabilidad",
     description:
-      "Datos encriptados, backups automáticos y control de accesos granular. Cumplimos estándares de seguridad empresarial.",
+      "SSL, backups automáticos y hosting optimizado. Tu sitio siempre disponible y protegido frente a vulnerabilidades.",
     color: "from-slate-500 to-gray-700",
   },
   {
     icon: TrendingUp,
-    title: "Escalabilidad Real",
+    title: "SEO desde la Base",
     description:
-      "Construimos pensando en el futuro. Tu software escala desde un negocio local hasta una operación multinacional.",
+      "Construimos cada web con estructura semántica, velocidad y metadatos optimizados para que Google te encuentre primero.",
     color: "from-primary-500 to-primary-800",
   },
   {
     icon: Headphones,
     title: "Soporte Continuo",
     description:
-      "No desaparecemos después de entregar. Acompañamos la evolución de tu sistema con soporte técnico y mejoras continuas.",
+      "No desaparecemos al entregar. Acompañamos el crecimiento de tu web con actualizaciones, mejoras y soporte directo.",
     color: "from-pink-400 to-rose-600",
   },
 ];
@@ -85,8 +85,8 @@ export default function Benefits() {
             Por qué HAMCSoft
           </div>
           <h2 className="text-4xl lg:text-5xl font-black text-gray-900 tracking-tight mb-4">
-            Más que software.{" "}
-            <span className="gradient-text">Un socio tecnológico</span>
+            Más que una agencia web.{" "}
+            <span className="gradient-text">Tu socio digital</span>
           </h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
             No entregamos código. Entregamos soluciones que impactan directamente en

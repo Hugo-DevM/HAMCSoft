@@ -74,14 +74,14 @@ export default function CTAFinal() {
             <h2 className="text-4xl lg:text-6xl font-black text-white tracking-tight leading-tight mb-6">
               Tu negocio merece
               <br />
-              <span className="text-white/70">software que</span>
+              <span className="text-white/70">una web que</span>
               <br />
-              realmente funcione.
+              realmente venda.
             </h2>
 
             <p className="text-lg text-white/70 leading-relaxed mb-10 max-w-xl">
-              Cuéntanos el problema que quieres resolver. Nosotros te mostramos
-              cómo el software correcto puede transformar tu operación.
+              Cuéntanos tu proyecto. Nosotros te mostramos cómo un sitio web
+              bien construido puede transformar la presencia de tu negocio.
             </p>
 
             <ul className="space-y-3 mb-10">

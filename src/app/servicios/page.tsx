@@ -12,9 +12,9 @@ import CTACatalogo from "@/components/catalogo/CTACatalogo";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Catálogo de Servicios — HAMCSoft | Desarrollo Web y Software Profesional",
+  title: "Catálogo de Servicios — HAMCSoft | Agencia de Desarrollo Web",
   description:
-    "Conoce todos nuestros servicios de desarrollo de software: landing pages, ecommerce, sistemas web, automatización y más. Precios claros y transparentes.",
+    "Conoce todos nuestros servicios de desarrollo web: landing pages, ecommerce, aplicaciones web, automatización y más. Precios claros y transparentes.",
   keywords: [
     "desarrollo web",
     "software a medida",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Catálogo de Servicios — HAMCSoft",
     description:
-      "Software y sitios web profesionales para negocios modernos. Landing pages, ecommerce, sistemas web y más.",
+      "Sitios web profesionales para negocios modernos. Landing pages, ecommerce, aplicaciones web y más.",
     siteName: "HAMCSoft",
     type: "website",
     url: "https://hamcsoft.com/servicios",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Catálogo de Servicios — HAMCSoft",
     description:
-      "Software y sitios web profesionales para negocios modernos. Landing pages, ecommerce, sistemas web y más.",
+      "Sitios web profesionales para negocios modernos. Landing pages, ecommerce, aplicaciones web y más.",
     images: ["/hamcsoft.png"],
   },
   alternates: {

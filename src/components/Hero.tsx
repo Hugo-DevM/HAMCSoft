@@ -13,9 +13,9 @@ const fadeUp = {
 };
 
 const badges = [
-  { icon: ShieldCheck, label: "Soluciones Empresariales" },
-  { icon: Cpu, label: "Software a Medida" },
-  { icon: Globe2, label: "Escalabilidad Global" },
+  { icon: ShieldCheck, label: "Diseño a Medida" },
+  { icon: Cpu, label: "Sitios Web Rápidos" },
+  { icon: Globe2, label: "Presencia Digital" },
 ];
 
 function CompanyMockup() {
@@ -94,10 +94,10 @@ function CompanyMockup() {
               {/* Company intro card */}
               <div className="bg-gradient-to-br from-primary-800 to-primary-900 rounded-xl p-4 text-white">
                 <p className="text-[10px] font-bold uppercase tracking-widest text-primary-300 mb-1">
-                  Empresa de Software
+                  Agencia Web
                 </p>
                 <p className="text-sm font-black">
-                  Soluciones empresariales a medida
+                  Sitios web y soluciones digitales
                 </p>
                 <p className="text-[10px] text-primary-200 mt-1">
                   Transformamos negocios con tecnología de punta
@@ -223,7 +223,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 bg-primary-50 border border-primary-100 text-primary-800 text-xs font-semibold px-4 py-2 rounded-full"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-primary-600 animate-pulse" />
-              Empresa de Desarrollo de Software Empresarial
+              Agencia de Desarrollo Web
             </motion.div>
 
             {/* Headline */}
@@ -234,7 +234,7 @@ export default function Hero() {
               animate="visible"
               className="text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight text-gray-900 leading-[1.05]"
             >
-              Software que <span className="gradient-text">transforma</span>{" "}
+              Webs que <span className="gradient-text">transforman</span>{" "}
               <br className="hidden lg:block" />
               negocios <span className="gradient-text">reales</span>
             </motion.h1>
@@ -247,9 +247,9 @@ export default function Hero() {
               animate="visible"
               className="text-lg lg:text-xl text-gray-500 leading-relaxed max-w-lg"
             >
-              Desarrollamos soluciones tecnológicas empresariales a medida.
-              Desde sistemas de fidelización hasta plataformas POS modulares —
-              construimos el software que tu negocio necesita para crecer.
+              Creamos sitios web, tiendas en línea y aplicaciones digitales para
+              negocios que quieren crecer. También desarrollamos sistemas
+              empresariales a medida cuando tu operación lo necesita.
             </motion.p>
 
             {/* CTAs */}

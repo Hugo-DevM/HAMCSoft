@@ -132,7 +132,7 @@ export default function Products() {
             <span className="gradient-text">para tu industria</span>
           </h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            No desarrollamos software genérico. Cada producto nace del análisis
+            No creamos soluciones genéricas. Cada producto nace del análisis
             profundo de un problema real de negocio — y se construye para
             resolverlo de forma definitiva.
           </p>

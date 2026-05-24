@@ -1,26 +1,27 @@
 import type { Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://hamcsoft.com"),
   title: {
-    default: "HAMCSoft — Desarrollo de Software y Soluciones Digitales",
+    default: "HAMCSoft — Agencia de Desarrollo Web y Soluciones Digitales",
     template: "%s | HAMCSoft",
   },
   description:
-    "Desarrollamos software a medida, sitios web profesionales, sistemas POS, ecommerce y automatizaciones para negocios modernos. Tecnología que impulsa tu crecimiento.",
+    "Creamos sitios web profesionales, tiendas en línea, landing pages y aplicaciones web para negocios modernos. También desarrollamos sistemas empresariales a medida.",
   keywords: [
-    "desarrollo de software",
+    "desarrollo web",
+    "agencia web",
     "soluciones digitales",
-    "software a medida",
     "sitios web profesionales",
     "ecommerce",
-    "sistema POS",
-    "automatización",
-    "HAMCSoft",
     "landing page",
     "aplicaciones web",
+    "HAMCSoft",
+    "sistema POS",
+    "automatización",
   ],
   authors: [{ name: "HAMCSoft", url: "https://hamcsoft.com" }],
   creator: "HAMCSoft",
@@ -37,9 +38,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "HAMCSoft — Desarrollo de Software y Soluciones Digitales",
+    title: "HAMCSoft — Agencia de Desarrollo Web y Soluciones Digitales",
     description:
-      "Desarrollamos software a medida, sitios web profesionales, sistemas POS, ecommerce y automatizaciones para negocios modernos.",
+      "Creamos sitios web profesionales, tiendas en línea, landing pages y aplicaciones web para negocios modernos.",
     siteName: "HAMCSoft",
     type: "website",
     url: "https://hamcsoft.com",
@@ -49,15 +50,15 @@ export const metadata: Metadata = {
         url: "/hamcsoft.png",
         width: 1200,
         height: 630,
-        alt: "HAMCSoft — Desarrollo de Software y Soluciones Digitales",
+        alt: "HAMCSoft — Agencia de Desarrollo Web y Soluciones Digitales",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "HAMCSoft — Desarrollo de Software y Soluciones Digitales",
+    title: "HAMCSoft — Agencia de Desarrollo Web y Soluciones Digitales",
     description:
-      "Desarrollamos software a medida, sitios web profesionales, sistemas POS, ecommerce y automatizaciones para negocios modernos.",
+      "Creamos sitios web profesionales, tiendas en línea, landing pages y aplicaciones web para negocios modernos.",
     images: ["/hamcsoft.png"],
   },
   alternates: {
@@ -83,6 +84,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         {children}
+        <WhatsAppButton />
         <SpeedInsights />
       </body>
     </html>

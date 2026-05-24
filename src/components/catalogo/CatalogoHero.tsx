@@ -58,8 +58,8 @@ export default function CatalogoHero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-[1.08] tracking-tight mb-6"
         >
-          Desarrollamos software{" "}
-          <span className="gradient-text">y sitios web</span>
+          Desarrollamos sitios web{" "}
+          <span className="gradient-text">y soluciones digitales</span>
           <br />
           profesionales para{" "}
           <span className="relative inline-block">
