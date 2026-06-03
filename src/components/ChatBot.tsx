@@ -27,7 +27,7 @@ type Option = {
   value: string;
   next: string;
   score?: number;
-  service?: "pos" | "fid" | "dev";
+  service?: "web" | "pos" | "fid" | "dev";
 };
 
 type Step = {
