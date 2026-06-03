@@ -667,7 +667,7 @@ export default function ChatBot({ onClose }: { onClose: () => void }) {
   /* Contact capture */
   const [pendingResult, setPendingResult] = useState<{
     endType: EndType;
-    svc: "pos" | "fid" | "dev";
+    svc: "web" | "pos" | "fid" | "dev";
     finalMsg: string;
   } | null>(null);
   const [contactName, setContactName] = useState("");
