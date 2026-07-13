@@ -20,14 +20,14 @@ const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
 
 /* ─── Types ─────────────────────────────────────────────── */
 type EndType = "hot" | "warm" | "cold" | "disqualified";
-type ServiceType = "pos" | "fid" | "dev" | "web" | null;
+type ServiceType = "fid" | "dev" | "web" | null;
 
 type Option = {
   label: string;
   value: string;
   next: string;
   score?: number;
-  service?: "web" | "pos" | "fid" | "dev";
+  service?: "web" | "fid" | "dev";
 };
 
 type Step = {
@@ -71,12 +71,6 @@ const STEPS: Record<string, Step> = {
         value: "web",
         next: "web_type",
         service: "web",
-      },
-      {
-        label: "🖥️ Sistema de punto de venta (POS)",
-        value: "pos",
-        next: "pos_business_type",
-        service: "pos",
       },
       {
         label: "🎯 Sistema de fidelización de clientes",
@@ -190,107 +184,6 @@ const STEPS: Record<string, Step> = {
     ],
   },
   result_web: { id: "result_web", botMessage: "", isEnd: true },
-
-  /* ══ RAMA POS ════════════════════════════════════════════════ */
-  pos_business_type: {
-    id: "pos_business_type",
-    botMessage: "¿Qué tipo de negocio tienes?",
-    options: [
-      {
-        label: "🍽️ Restaurante / Bar / Cafetería",
-        value: "restaurant",
-        next: "pos_locations",
-        score: 2,
-      },
-      {
-        label: "🛍️ Tienda / Retail / Abarrotes",
-        value: "retail",
-        next: "pos_locations",
-        score: 2,
-      },
-      {
-        label: "🏢 Otro tipo de negocio",
-        value: "other",
-        next: "pos_locations",
-        score: 1,
-      },
-    ],
-  },
-  pos_locations: {
-    id: "pos_locations",
-    botMessage: "¿Cuántos puntos de venta o sucursales tienes actualmente?",
-    options: [
-      { label: "1 sucursal", value: "1", next: "pos_decision_maker", score: 1 },
-      {
-        label: "2 a 5 sucursales",
-        value: "2-5",
-        next: "pos_decision_maker",
-        score: 3,
-      },
-      {
-        label: "6 o más sucursales",
-        value: "6+",
-        next: "pos_decision_maker",
-        score: 5,
-      },
-      {
-        label: "Ninguna, apenas estoy empezando",
-        value: "0",
-        next: "pos_decision_maker",
-        score: 0,
-      },
-    ],
-  },
-  pos_decision_maker: {
-    id: "pos_decision_maker",
-    botMessage:
-      "¿Eres tú quien toma las decisiones de inversión en tu negocio?",
-    options: [
-      {
-        label: "Sí, yo decido las compras",
-        value: "yes",
-        next: "pos_timeline",
-        score: 2,
-      },
-      {
-        label: "No, debo consultarlo con alguien",
-        value: "no",
-        next: "pos_timeline",
-        score: 0,
-      },
-    ],
-  },
-  pos_timeline: {
-    id: "pos_timeline",
-    botMessage: "¿En qué plazo te gustaría implementar el sistema POS?",
-    options: [
-      {
-        label: "⚡ Lo antes posible",
-        value: "asap",
-        next: "result_pos",
-        score: 4,
-      },
-      {
-        label: "📅 En los próximos 3 meses",
-        value: "3m",
-        next: "result_pos",
-        score: 2,
-      },
-      {
-        label: "🗓️ En 6 meses o más",
-        value: "6m",
-        next: "result_pos",
-        score: 1,
-      },
-      {
-        label: "🤔 Aún no lo sé",
-        value: "unknown",
-        next: "result_pos",
-        score: 0,
-      },
-    ],
-  },
-  result_pos: { id: "result_pos", botMessage: "", isEnd: true },
 
   /* ══ RAMA FIDELIZACIÓN ═══════════════════════════════════════ */
   fid_business_type: {
@@ -553,11 +446,6 @@ const FINAL_MESSAGES = {
     warm: "¡Tu proyecto web tiene mucho potencial! 👍 Te recomendamos una llamada para explorar cómo podemos hacerlo realidad.",
     cold: "Gracias por compartir. Cuando estés listo para lanzar tu web, aquí estaremos. 😊",
   },
-  pos: {
-    hot: "¡Excelente perfil! 🎉 Tu negocio es exactamente el tipo al que HAMCSoft genera mayor impacto. Un asesor te contactará muy pronto.",
-    warm: "¡Buen perfil! 👍 Tienes potencial para aprovechar HAMCSoft al máximo. Te recomendamos una llamada sin compromiso.",
-    cold: "Gracias por compartir. Por ahora quizás no es el momento ideal, pero cuando estés listo, aquí estaremos. 😊",
-  },
   fid: {
     hot: "¡Perfil ideal para nuestro sistema de fidelización! 🎯 Podemos ayudarte a retener y hacer crecer tu base de clientes. Un asesor te contactará muy pronto.",
     warm: "¡Tu negocio tiene buen potencial para fidelizar clientes! 👍 Te recomendamos una llamada para ver cómo podemos ayudarte.",
@@ -573,7 +461,7 @@ const FINAL_MESSAGES = {
 /* ─── Tarjeta final por resultado ───────────────────────── */
 const END_CONTENT: Record<
   EndType,
-  Record<"pos" | "fid" | "dev" | "web", { title: string; desc: string }> & {
+  Record<"fid" | "dev" | "web", { title: string; desc: string }> & {
     color: string;
   }
 > = {
@@ -582,10 +470,6 @@ const END_CONTENT: Record<
     web: {
       title: "¡Tu web está lista para despegar!",
       desc: "Un especialista revisará tu proyecto y te contactará muy pronto. También puedes escribirnos ahora.",
-    },
-    pos: {
-      title: "¡Eres un cliente ideal para HAMCSoft!",
-      desc: "Un asesor se pondrá en contacto contigo muy pronto. También puedes escribirnos ahora mismo.",
     },
     fid: {
       title: "¡Tu negocio es perfecto para fidelización!",
@@ -602,10 +486,6 @@ const END_CONTENT: Record<
       title: "¡Tu proyecto web tiene potencial!",
       desc: "Agenda una llamada para conocer cómo podemos construir tu web juntos. Sin compromiso.",
     },
-    pos: {
-      title: "¡Tienes buen potencial!",
-      desc: "Te recomendamos una llamada exploratoria sin compromiso para conocer más sobre tu negocio.",
-    },
     fid: {
       title: "¡Buen candidato para fidelización!",
       desc: "Agenda una llamada para conocer cómo podemos ayudarte a retener y hacer crecer tu clientela.",
@@ -621,10 +501,6 @@ const END_CONTENT: Record<
       title: "Gracias por tu interés",
       desc: "Cuando tengas más claro tu proyecto web, aquí estaremos para ayudarte.",
     },
-    pos: {
-      title: "Gracias por tu interés",
-      desc: "Cuando tengas mayor claridad sobre tus planes, con gusto podemos orientarte.",
-    },
     fid: {
       title: "Gracias por tu interés",
       desc: "Cuando estés listo para potenciar la lealtad de tus clientes, aquí estaremos.",
@@ -639,10 +515,6 @@ const END_CONTENT: Record<
     web: {
       title: "¡Hasta pronto!",
       desc: "Si en el futuro necesitas un sitio web, aquí estaremos.",
-    },
-    pos: {
-      title: "¡Hasta pronto!",
-      desc: "Si en el futuro tienes un negocio, aquí estaremos para ayudarte.",
     },
     fid: {
       title: "¡Hasta pronto!",
@@ -660,14 +532,14 @@ export default function ChatBot({ onClose }: { onClose: () => void }) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [currentStep, setCurrentStep] = useState<Step>(STEPS.start);
   const [score, setScore] = useState(0);
-  const [serviceType, setServiceType] = useState<"pos" | "fid" | "dev" | "web">("web");
+  const [serviceType, setServiceType] = useState<"fid" | "dev" | "web">("web");
   const [endType, setEndType] = useState<EndType | null>(null);
   const [isTyping, setIsTyping] = useState(false);
   const [optionsVisible, setOptionsVisible] = useState(false);
   /* Contact capture */
   const [pendingResult, setPendingResult] = useState<{
     endType: EndType;
-    svc: "web" | "pos" | "fid" | "dev";
+    svc: "web" | "fid" | "dev";
     finalMsg: string;
   } | null>(null);
   const [contactName, setContactName] = useState("");
@@ -747,7 +619,6 @@ export default function ChatBot({ onClose }: { onClose: () => void }) {
 
     /* Resolve result steps dynamically — first collect contact info */
     if (
-      next.id === "result_pos" ||
       next.id === "result_fid" ||
       next.id === "result_dev" ||
       next.id === "result_web"
@@ -757,9 +628,7 @@ export default function ChatBot({ onClose }: { onClose: () => void }) {
           ? "dev"
           : next.id === "result_fid"
             ? "fid"
-            : next.id === "result_web"
-              ? "web"
-              : "pos";
+            : "web";
       const thresholds =
         svc === "dev" || svc === "web" ? { hot: 6, warm: 3 } : { hot: 8, warm: 4 };
       const resolved: EndType =
@@ -838,16 +707,15 @@ export default function ChatBot({ onClose }: { onClose: () => void }) {
       },
     ]);
     setPendingResult(null);
-    setServiceType(svc as "pos" | "fid" | "dev" | "web");
+    setServiceType(svc);
 
     setTimeout(() => {
       showBotMessage(finalMsg, () => setEndType(resolved));
     }, 300);
   }
 
-  const SERVICE_LABELS: Record<"pos" | "fid" | "dev" | "web", string> = {
+  const SERVICE_LABELS: Record<"fid" | "dev" | "web", string> = {
     web: "Desarrollo Web",
-    pos: "Sistema POS",
     fid: "Sistema de Fidelización",
     dev: "Aplicación / Sistema a Medida",
   };

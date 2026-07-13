@@ -23,7 +23,7 @@ Si no está de acuerdo con alguno de estos términos, le pedimos que se abstenga
 
 • Desarrollo de sitios web (Landing Pages, sitios institucionales, ecommerce).
 • Desarrollo de software a medida y sistemas empresariales.
-• Sistemas de punto de venta (POS) y fidelización.
+• Sistemas de fidelización y plataformas SaaS.
 • Automatización de procesos mediante herramientas digitales.
 • Consultoría y asesoría tecnológica.
 

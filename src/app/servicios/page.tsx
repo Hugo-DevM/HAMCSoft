@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "software a medida",
     "landing page",
     "ecommerce",
-    "sistemas POS",
+    "aplicaciones web",
     "automatización",
     "HAMCSoft",
     "catálogo de servicios",

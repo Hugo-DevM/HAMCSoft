@@ -4,7 +4,6 @@ import {
   ShoppingCart,
   ShoppingBag,
   Cpu,
-  MonitorSmartphone,
   Zap,
   Plug,
   Code2,
@@ -69,16 +68,6 @@ export const servicios: Servicio[] = [
     technologies: ["Next.js", "Node.js", "PostgreSQL", "Redis"],
     benefits: ["100% personalizado", "Escalable", "Multi-usuario"],
     badge: "Escalable",
-  },
-  {
-    id: "sistemas-pos",
-    icon: MonitorSmartphone,
-    title: "Sistemas POS",
-    description:
-      "Punto de venta modular y moderno para cafeterías, restaurantes, retail y más. Funciona online y offline.",
-    technologies: ["React", "Electron", "SQLite", "Node.js"],
-    benefits: ["Modo offline", "Reportes", "Multi-sucursal"],
-    badge: "Más vendido",
   },
   {
     id: "automatizacion",

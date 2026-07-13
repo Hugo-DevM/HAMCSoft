@@ -14,8 +14,8 @@ import {
 
 const footerLinks = {
   Soluciones: [
-    { label: "Sistema de Fidelización", href: "https://www.fideliza.app/" },
-    { label: "Sistema POS General", href: "https://pos-modular-lemon.vercel.app/" },
+    { label: "Fideliza — Fidelización", href: "https://www.fideliza.app/" },
+    { label: "Tornea Cup (Próximamente)", href: "/proximamente" },
     { label: "Próximamente", href: "/proximamente" },
   ],
   Empresa: [

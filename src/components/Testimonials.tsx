@@ -7,7 +7,7 @@ const testimonials = [
   {
     name: "Carlos Méndez",
     role: "Propietario",
-    business: "Café Central — Ciudad de Panamá",
+    business: "Café Central — Puerto Vallarta",
     avatar: "CM",
     avatarBg: "bg-amber-100 text-amber-700",
     product: "Sistema de Fidelización",
@@ -19,32 +19,32 @@ const testimonials = [
     metricLabel: "Retención de clientes",
   },
   {
-    name: "Andrea Rojas",
-    role: "Gerente Comercial",
-    business: "TiendaMax — Bogotá",
-    avatar: "AR",
-    avatarBg: "bg-blue-100 text-blue-700",
-    product: "Suite POS (Beta)",
-    productBg: "bg-blue-50 text-blue-700",
-    quote:
-      "Estamos en el programa beta del POS de HAMCSoft y ya se nota la diferencia. El sistema es rapidísimo y la interfaz es tan intuitiva que mis cajeros lo dominaron el primer día. Pocas empresas de software escuchan tanto al cliente durante el desarrollo.",
-    rating: 5,
-    metric: "−60%",
-    metricLabel: "Tiempo de capacitación",
-  },
-  {
-    name: "Miguel Herrera",
-    role: "Fundador",
-    business: "Red Barberías El Estilo — Medellín",
-    avatar: "MH",
+    name: "Florería Tulipán",
+    role: "Propietaria",
+    business: "Florerío Tulipán — Puerto Vallarta",
+    avatar: "FT",
     avatarBg: "bg-rose-100 text-rose-700",
-    product: "Solución Personalizada",
+    product: "Ecommerce con pedidos por WhatsApp",
     productBg: "bg-rose-50 text-rose-700",
     quote:
-      "HAMCSoft desarrolló para nosotros un módulo de agenda integrado con el sistema de puntos. El resultado superó lo que esperaba. Son un equipo serio, profesional y que sabe traducir las necesidades del negocio en tecnología que funciona de verdad.",
+      "HAMCSoft nos creó una tienda en línea sencilla donde los clientes eligen sus arreglos y el pedido llega directo a nuestro WhatsApp. Antes todo era por mensajes sueltos y se nos perdían pedidos; ahora es mucho más ordenado y vendemos más sin complicarnos.",
+    rating: 5,
+    metric: "2x",
+    metricLabel: "Más pedidos en línea",
+  },
+  {
+    name: "Laptops Master",
+    role: "Fundador",
+    business: "Laptops Master — Puerto Vallarta",
+    avatar: "LM",
+    avatarBg: "bg-blue-100 text-blue-700",
+    product: "Landing Page",
+    productBg: "bg-blue-50 text-blue-700",
+    quote:
+      "Necesitábamos presencia en internet y HAMCSoft nos entregó una landing page rápida, moderna y clara. Ahora los clientes nos encuentran en Google, ven nuestros equipos y servicios, y nos contactan directo. El proceso fue ágil y sin rodeos.",
     rating: 5,
     metric: "3x",
-    metricLabel: "Más reservas mensuales",
+    metricLabel: "Más clientes nuevos",
   },
 ];
 
@@ -148,7 +148,7 @@ export default function Testimonials() {
           className="mt-14 flex flex-wrap justify-center items-center gap-10 py-8 border-t border-b border-gray-200"
         >
           {[
-            { value: "2", label: "Sistemas en producción/beta" },
+            { value: "1", label: "SaaS en producción" },
             { value: "50+", label: "Clientes activos" },
             { value: "4.9/5", label: "Satisfacción promedio" },
             { value: "2+", label: "Años desarrollando" },

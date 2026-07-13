@@ -7,7 +7,7 @@ import {
   Bell,
   ArrowLeft,
   Sparkles,
-  Code2,
+  Trophy,
   Zap,
   ShieldCheck,
 } from "lucide-react";
@@ -18,10 +18,10 @@ const WA_NUMBER = "523222151711";
 
 const coming = [
   {
-    icon: Code2,
-    title: "Módulos por sector",
+    icon: Trophy,
+    title: "Tornea Cup",
     description:
-      "Soluciones especializadas para restaurantes, retail, salones de belleza, clínicas y más.",
+      "SaaS para dueños de canchas de fútbol rápido: crea torneos, genera el rol de juegos, lleva tablas de posiciones en vivo y gestiona equipos, jugadores y pagos — sin depender de WhatsApp.",
     eta: "Próximamente",
   },
   {

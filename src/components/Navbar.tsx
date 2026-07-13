@@ -16,8 +16,8 @@ const navLinks = [
     href: "#soluciones",
     sectionId: "soluciones",
     children: [
-      { label: "Sistema de Fidelización", href: "https://www.fideliza.app/" },
-      { label: "Suite POS Modular", href: "https://pos-modular-lemon.vercel.app/" },
+      { label: "Fideliza — Fidelización", href: "https://www.fideliza.app/" },
+      { label: "Tornea Cup (Próximamente)", href: "/proximamente" },
     ],
   },
   { label: "Servicios", href: "/servicios" },

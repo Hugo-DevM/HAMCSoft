@@ -60,8 +60,8 @@ export default function CTAFinal() {
             className="absolute bottom-10 right-32 hidden lg:block"
           >
             <div className="bg-white/15 backdrop-blur-sm border border-white/20 rounded-2xl px-5 py-3">
-              <p className="text-white/90 text-xs font-bold">🖥️ Suite POS</p>
-              <p className="text-white text-lg font-black">En desarrollo</p>
+              <p className="text-white/90 text-xs font-bold">⚽ Tornea Cup</p>
+              <p className="text-white text-lg font-black">Próximamente</p>
             </div>
           </motion.div>
 

@@ -21,18 +21,18 @@ const badges = [
 function CompanyMockup() {
   const products = [
     {
-      name: "Sistema de Fidelización",
+      name: "Fideliza — Fidelización",
       status: "Activo",
       statusColor: "bg-green-100 text-green-700",
-      clients: "120+",
+      meta: "Programas de lealtad para negocios",
       icon: "🎯",
     },
     {
-      name: "Suite POS Modular",
-      status: "En Desarrollo",
-      statusColor: "bg-amber-100 text-amber-700",
-      clients: "Beta",
-      icon: "🖥️",
+      name: "Tornea Cup",
+      status: "Próximamente",
+      statusColor: "bg-sky-100 text-sky-700",
+      meta: "Torneos de fútbol rápido",
+      icon: "⚽",
     },
   ];
 
@@ -120,9 +120,7 @@ function CompanyMockup() {
                     <p className="text-xs font-bold text-gray-800 truncate">
                       {p.name}
                     </p>
-                    <p className="text-[9px] text-gray-400">
-                      {p.clients} clientes
-                    </p>
+                    <p className="text-[9px] text-gray-400">{p.meta}</p>
                   </div>
                   <span
                     className={`text-[9px] font-bold px-2 py-1 rounded-full shrink-0 ${p.statusColor}`}
@@ -165,7 +163,7 @@ function CompanyMockup() {
           <span className="text-lg">🎯</span>
         </div>
         <div>
-          <p className="text-xs font-bold text-gray-800">Fidelización</p>
+          <p className="text-xs font-bold text-gray-800">Fideliza</p>
           <p className="text-[10px] text-gray-400">En producción</p>
         </div>
       </motion.div>
@@ -181,14 +179,14 @@ function CompanyMockup() {
         }}
         className="absolute -left-4 bottom-24 bg-white rounded-2xl shadow-lg border border-gray-100 px-4 py-3"
       >
-        <p className="text-[10px] text-gray-400 font-medium">Suite POS</p>
-        <p className="text-sm font-bold text-primary-800">En desarrollo</p>
+        <p className="text-[10px] text-gray-400 font-medium">Tornea Cup ⚽</p>
+        <p className="text-sm font-bold text-primary-800">Próximamente</p>
         <div className="flex gap-1 mt-1">
           {[1, 2, 3, 4].map((i) => (
             <div
               key={i}
               className={`h-1.5 w-4 rounded-full ${
-                i <= 2 ? "bg-primary-600" : "bg-gray-200"
+                i <= 1 ? "bg-primary-600" : "bg-gray-200"
               }`}
             />
           ))}
@@ -202,7 +200,7 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex items-center pt-16 overflow-hidden bg-white"
+      className="relative min-h-[100svh] flex items-center pt-16 overflow-hidden bg-white"
     >
       {/* Background elements */}
       <div className="absolute inset-0 bg-grid opacity-60 pointer-events-none" />
@@ -210,21 +208,11 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] orb-2 pointer-events-none" />
       <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[1px] bg-gradient-to-r from-transparent via-primary-300 to-transparent opacity-50" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10 lg:py-16 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6 lg:py-8 w-full">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left content */}
-          <div className="space-y-8">
+          <div className="space-y-5 lg:space-y-6">
             {/* Top badge */}
-            <motion.div
-              custom={0}
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              className="inline-flex items-center gap-2 bg-primary-50 border border-primary-100 text-primary-800 text-xs font-semibold px-4 py-2 rounded-full"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-primary-600 animate-pulse" />
-              Agencia de Desarrollo Web
-            </motion.div>
 
             {/* Headline */}
             <motion.h1
@@ -232,7 +220,7 @@ export default function Hero() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight text-gray-900 leading-[1.05]"
+              className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-gray-900 leading-[1.05]"
             >
               Webs que <span className="gradient-text">transforman</span>{" "}
               <br className="hidden lg:block" />
@@ -245,7 +233,7 @@ export default function Hero() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="text-lg lg:text-xl text-gray-500 leading-relaxed max-w-lg"
+              className="text-base lg:text-lg text-gray-500 leading-relaxed max-w-lg"
             >
               Creamos sitios web, tiendas en línea y aplicaciones digitales para
               negocios que quieren crecer. También desarrollamos sistemas
@@ -262,14 +250,14 @@ export default function Hero() {
             >
               <a
                 href="#soluciones"
-                className="inline-flex items-center gap-2.5 bg-primary-800 hover:bg-primary-900 text-white font-semibold px-7 py-4 rounded-2xl transition-all duration-200 shadow-primary hover:shadow-xl hover:-translate-y-0.5 text-base"
+                className="inline-flex items-center gap-2.5 bg-primary-800 hover:bg-primary-900 text-white font-semibold px-6 py-3.5 rounded-2xl transition-all duration-200 shadow-primary hover:shadow-xl hover:-translate-y-0.5 text-base"
               >
                 Ver Nuestras Soluciones
                 <ArrowRight size={18} />
               </a>
               <a
                 href="#contacto"
-                className="inline-flex items-center gap-2.5 bg-white hover:bg-gray-50 text-gray-700 font-semibold px-7 py-4 rounded-2xl transition-all duration-200 border border-gray-200 hover:border-primary-200 text-base"
+                className="inline-flex items-center gap-2.5 bg-white hover:bg-gray-50 text-gray-700 font-semibold px-6 py-3.5 rounded-2xl transition-all duration-200 border border-gray-200 hover:border-primary-200 text-base"
               >
                 Hablar con un experto
               </a>
@@ -281,7 +269,7 @@ export default function Hero() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="flex flex-wrap gap-4 pt-2"
+              className="flex flex-wrap gap-4 pt-1"
             >
               {badges.map(({ icon: Icon, label }) => (
                 <div
@@ -300,7 +288,7 @@ export default function Hero() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="pt-4 border-t border-gray-100 flex gap-8"
+              className="pt-3 border-t border-gray-100 flex gap-8"
             >
               {[
                 { number: "2", label: "Productos en portafolio" },

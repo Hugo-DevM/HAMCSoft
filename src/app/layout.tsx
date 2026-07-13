@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "landing page",
     "aplicaciones web",
     "HAMCSoft",
-    "sistema POS",
+    "torneos de fútbol rápido",
     "automatización",
   ],
   authors: [{ name: "HAMCSoft", url: "https://hamcsoft.com" }],
@@ -64,6 +64,15 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://hamcsoft.com",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/icon-48.png", type: "image/png", sizes: "48x48" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/logo-icon.svg", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
 };
 
 export default function RootLayout({
@@ -80,7 +89,6 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
-        <link rel="icon" href="/logo-icon.svg" type="image/svg+xml" />
       </head>
       <body className="antialiased">
         {children}

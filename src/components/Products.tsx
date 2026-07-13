@@ -3,37 +3,35 @@
 import { motion } from "framer-motion";
 import {
   Gift,
-  Monitor,
-  Coffee,
-  ShoppingBag,
-  Scissors,
-  Store,
+  Trophy,
+  CalendarDays,
+  Users,
+  LayoutDashboard,
   ArrowRight,
   Sparkles,
   ChevronRight,
-  Puzzle,
 } from "lucide-react";
 
-const posModules = [
+const torneaModules = [
   {
-    icon: Store,
-    name: "Cafeterías y restaurantes",
-    desc: "Comandas, mesas y cocina en pantalla",
+    icon: LayoutDashboard,
+    name: "Dueños de canchas",
+    desc: "Torneos, inscripciones y cobros en un solo panel",
   },
   {
-    icon: Coffee,
-    name: "Retail y tiendas",
-    desc: "Inventario, variantes y código de barras",
+    icon: CalendarDays,
+    name: "Rol de juegos",
+    desc: "Calendario y horarios generados automáticamente",
   },
   {
-    icon: ShoppingBag,
-    name: "Barberías y estéticas",
-    desc: "Agenda de citas y servicios por operador",
+    icon: Trophy,
+    name: "Tablas en vivo",
+    desc: "Posiciones, resultados y goleadores al instante",
   },
   {
-    icon: Scissors,
-    name: "Y más sectores…",
-    desc: "Módulos en desarrollo continuo",
+    icon: Users,
+    name: "Equipos y jugadores",
+    desc: "Registro, plantillas y seguimiento por torneo",
   },
 ];
 
@@ -48,12 +46,12 @@ const products = [
     description:
       "Plataforma completa para diseñar, lanzar y gestionar programas de lealtad personalizados. Acumula puntos, canjea recompensas y construye relaciones duraderas con tus clientes.",
     features: [
-      "Programa de puntos y recompensas",
-      "Panel de gestión para el negocio",
-      "Interfaz web para el cliente",
-      "Proximamente: Integración con sistemas POS",
-      "Proximamente: Reportes de retención y LTV",
-      "Proximamente: Campañas de reactivación automática",
+      "Programas de puntos, visitas y recompensas",
+      "Registro rápido de transacciones",
+      "Portal web para tus clientes",
+      "Referidos y niveles VIP",
+      "Bonos y campañas para tus clientes",
+      "Analíticas de tu programa de lealtad",
     ],
     cta: "Ver sistema",
     color: "from-violet-500 to-primary-800",
@@ -62,28 +60,28 @@ const products = [
     borderColor: "border-primary-200",
   },
   {
-    id: "pos",
-    status: "development",
-    statusLabel: "En Desarrollo",
-    icon: Monitor,
-    name: "Sistema POS General",
-    tagline: "Un solo sistema, módulos para cada sector",
+    id: "tornea-cup",
+    status: "upcoming",
+    statusLabel: "Próximamente",
+    icon: Trophy,
+    name: "Tornea Cup",
+    tagline: "Torneos de fútbol rápido, sin depender de WhatsApp",
     description:
-      "Sistema de punto de venta general que permite instalar módulos especializados según el tipo de negocio. Un núcleo sólido y escalable al que se le agregan las funcionalidades exactas que cada sector necesita — sin pagar por lo que no se usa.",
+      "SaaS para dueños de canchas de fútbol rápido que hoy organizan sus torneos por WhatsApp. Centraliza inscripciones, rol de juegos, resultados y cobros en una plataforma robusta — pensada tanto para el dueño del campo como para los equipos y jugadores que participan.",
     features: [
-      "Núcleo POS con caja, inventario y reportes",
-      "Módulos instalables por tipo de negocio",
-      "100% operativo sin conexión a internet",
-      "Sincronización automática en la nube",
-      "Multi-sucursal y multi-usuario",
-      "Interfaz nativa ultrarrápida",
+      "Creación y gestión de torneos",
+      "Rol de juegos y calendario automático",
+      "Tabla de posiciones y estadísticas en vivo",
+      "Registro de equipos y jugadores",
+      "Control de inscripciones y pagos",
+      "Portal para participantes con notificaciones",
     ],
-    cta: "Ver el sistema",
-    color: "from-blue-500 to-cyan-600",
-    bgLight: "from-blue-50 to-cyan-50",
-    accentColor: "text-blue-700",
-    borderColor: "border-blue-200",
-    modules: posModules,
+    cta: "Disponible próximamente",
+    color: "from-emerald-500 to-green-600",
+    bgLight: "from-emerald-50 to-green-50",
+    accentColor: "text-emerald-700",
+    borderColor: "border-emerald-200",
+    modules: torneaModules,
   },
 ];
 
@@ -170,10 +168,10 @@ export default function Products() {
                           className={`text-xs font-bold px-3 py-1.5 rounded-full border ${
                             isProduction
                               ? "bg-green-50 text-green-700 border-green-200"
-                              : "bg-amber-50 text-amber-700 border-amber-200"
+                              : "bg-sky-50 text-sky-700 border-sky-200"
                           }`}
                         >
-                          {isProduction ? "✓ " : "⏳ "}
+                          {isProduction ? "✓ " : "🔜 "}
                           {product.statusLabel}
                         </span>
                       </div>
@@ -208,15 +206,23 @@ export default function Products() {
                     </div>
 
                     {/* CTA */}
-                    <a
-                      href={product.id === "fidelizacion" ? "https://fideliza.app" : "https://pos-modular-lemon.vercel.app"}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`inline-flex items-center gap-2 text-sm font-bold transition-all duration-200 ${product.accentColor} hover:gap-3`}
-                    >
-                      {product.cta}
-                      <ArrowRight size={15} />
-                    </a>
+                    {product.id === "fidelizacion" ? (
+                      <a
+                        href="https://fideliza.app"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`inline-flex items-center gap-2 text-sm font-bold transition-all duration-200 ${product.accentColor} hover:gap-3`}
+                      >
+                        {product.cta}
+                        <ArrowRight size={15} />
+                      </a>
+                    ) : (
+                      <span
+                        className={`inline-flex items-center gap-2 text-sm font-bold ${product.accentColor}`}
+                      >
+                        ⚽ {product.cta}
+                      </span>
+                    )}
                   </div>
 
                   {/* Right — visual */}
@@ -229,7 +235,7 @@ export default function Products() {
                         <div className="bg-white rounded-2xl p-5 shadow-card border border-white/80">
                           <div className="flex items-center justify-between mb-4">
                             <p className="text-xs font-bold text-gray-700">
-                              Panel de Fidelización
+                              Fideliza — Panel
                             </p>
                             <span className="text-[10px] bg-green-100 text-green-700 font-bold px-2 py-1 rounded-full">
                               En vivo
@@ -273,39 +279,39 @@ export default function Products() {
                         <div className="grid grid-cols-2 gap-3">
                           <div className="bg-white rounded-xl p-4 shadow-card border border-white/80">
                             <p className="text-[10px] text-gray-400 mb-1">
-                              Retención
+                              Programas activos
                             </p>
                             <p className="text-xl font-black gradient-text">
-                              +68%
+                              2
                             </p>
                           </div>
                           <div className="bg-white rounded-xl p-4 shadow-card border border-white/80">
                             <p className="text-[10px] text-gray-400 mb-1">
-                              Clientes activos
+                              Puntos emitidos
                             </p>
                             <p className="text-xl font-black gradient-text">
-                              120+
+                              +1,240
                             </p>
                           </div>
                         </div>
                       </div>
                     ) : (
-                      /* POS Suite visual — modules grid */
+                      /* Tornea Cup visual — features grid */
                       <div className="space-y-4">
                         <p className="text-xs font-bold text-gray-500 uppercase tracking-widest">
-                          Módulos instalables por sector
+                          Todo tu torneo en un solo lugar
                         </p>
                         <div className="grid grid-cols-2 gap-3">
                           {product.modules?.map(
                             ({ icon: ModIcon, name, desc }) => (
                               <div
                                 key={name}
-                                className="bg-white rounded-2xl p-4 shadow-card border border-white/80 hover:border-blue-100 transition-colors"
+                                className="bg-white rounded-2xl p-4 shadow-card border border-white/80 hover:border-emerald-100 transition-colors"
                               >
-                                <div className="w-8 h-8 rounded-xl bg-blue-50 flex items-center justify-center mb-2">
+                                <div className="w-8 h-8 rounded-xl bg-emerald-50 flex items-center justify-center mb-2">
                                   <ModIcon
                                     size={16}
-                                    className="text-blue-600"
+                                    className="text-emerald-600"
                                   />
                                 </div>
                                 <p className="text-xs font-bold text-gray-800">
@@ -318,9 +324,9 @@ export default function Products() {
                             ),
                           )}
                         </div>
-                        <div className="bg-white/70 rounded-xl p-3 border border-blue-100 text-center">
-                          <p className="text-[10px] text-blue-600 font-semibold">
-                            + nuevos módulos en desarrollo continuo
+                        <div className="bg-white/70 rounded-xl p-3 border border-emerald-100 text-center">
+                          <p className="text-[10px] text-emerald-600 font-semibold">
+                            ⚽ Adiós a organizar torneos por WhatsApp
                           </p>
                         </div>
                       </div>
