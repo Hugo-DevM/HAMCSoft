@@ -15,6 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: "https://hamcsoft.com/portafolio",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: "https://hamcsoft.com/nosotros",
       lastModified: new Date(),
       changeFrequency: "monthly",

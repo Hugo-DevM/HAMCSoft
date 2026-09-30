@@ -10,6 +10,7 @@ const navLinks = [
   { label: "Inicio", href: "/", sectionId: "inicio" },
   { label: "Beneficios", href: "#beneficios", sectionId: "beneficios" },
   { label: "Tecnología", href: "#tecnologia", sectionId: "tecnologia" },
+  { label: "Portafolio", href: "/portafolio" },
   { label: "Testimonios", href: "#testimonios", sectionId: "testimonios" },
   {
     label: "Soluciones",
@@ -76,8 +77,8 @@ export default function Navbar() {
   const isActive = (link: (typeof navLinks)[number]) => {
     // Inicio: activo cuando estamos en "/" y no hay ninguna sección en vista
     if (link.href === "/") return pathname === "/" && activeSection === "";
-    // Página /servicios
-    if (link.href === "/servicios") return pathname === "/servicios";
+    // Páginas propias (/servicios, /portafolio, …)
+    if (link.href.startsWith("/")) return pathname === link.href;
     // Links de sección en la home
     if (link.sectionId) return activeSection === link.sectionId;
     return false;
@@ -199,7 +200,11 @@ export default function Navbar() {
               </a>
             )}
             <a
-              href={pathname === "/servicios" ? "#contacto-catalogo" : "#demo"}
+              href={
+                pathname === "/servicios"
+                  ? "#contacto-catalogo"
+                  : resolveHref("#demo")
+              }
               className="inline-flex items-center gap-2 bg-primary-800 hover:bg-primary-900 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-primary hover:shadow-lg hover:-translate-y-0.5"
             >
               {pathname === "/servicios" ? "Solicitar cotización" : "Solicitar Demo"}
@@ -256,7 +261,11 @@ export default function Navbar() {
                   </a>
                 )}
                 <a
-                  href={pathname === "/servicios" ? "#contacto-catalogo" : "#demo"}
+                  href={
+                pathname === "/servicios"
+                  ? "#contacto-catalogo"
+                  : resolveHref("#demo")
+              }
                   onClick={() => setMobileOpen(false)}
                   className="block text-center bg-primary-800 text-white text-sm font-semibold px-4 py-3 rounded-xl hover:bg-primary-900 transition-colors"
                 >

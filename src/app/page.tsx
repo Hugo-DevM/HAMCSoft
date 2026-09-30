@@ -21,6 +21,7 @@ import Benefits from "@/components/Benefits";
 import WhyUs from "@/components/WhyUs";
 import SystemPreview from "@/components/SystemPreview";
 import TechStack from "@/components/TechStack";
+import Portafolio from "@/components/Portafolio";
 import Testimonials from "@/components/Testimonials";
 import CTAFinal from "@/components/CTAFinal";
 import Footer from "@/components/Footer";
@@ -34,6 +35,7 @@ export default function Home() {
       <WhyUs />
       <SystemPreview />
       <TechStack />
+      <Portafolio />
       <Testimonials />
       <Products />
       <CTAFinal />
