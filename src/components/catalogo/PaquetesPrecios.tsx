@@ -39,7 +39,10 @@ export default function PaquetesPrecios() {
         </motion.div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+        {/* Seis paquetes: 3 columnas dan dos filas parejas. A cinco o seis en
+            línea las tarjetas quedan tan angostas que la lista de features se
+            parte en dos renglones por línea y deja de compararse. */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {paquetes.map((paquete, i) => (
             <motion.div
               key={paquete.id}

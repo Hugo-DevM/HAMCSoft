@@ -15,7 +15,7 @@ import {
 const footerLinks = {
   Soluciones: [
     { label: "Fideliza — Fidelización", href: "https://www.fideliza.app/" },
-    { label: "Tornea Cup (Próximamente)", href: "/proximamente" },
+    { label: "Sistema de Reservas", href: "/servicios#paquetes" },
     { label: "Próximamente", href: "/proximamente" },
   ],
   Empresa: [
@@ -82,8 +82,8 @@ export default function Footer() {
               />
             </a>
             <p className="text-sm text-gray-400 leading-relaxed mb-6 max-w-xs">
-              Plataforma modular de puntos de venta para negocios modernos.
-              Rápido, confiable y diseñado para crecer contigo.
+              Desarrollo web y sistemas a medida para negocios de Puerto
+              Vallarta y todo México. Sitios que venden y software que opera.
             </p>
 
             {/* Contact info */}

@@ -42,15 +42,31 @@ export interface Paquete {
   accentColor: string;
 }
 
+/* Ninguno de los paquetes incluye dominio ni hosting. Se dice en tres lugares a
+   propósito —en `priceNote`, como última línea de features y en el FAQ— porque
+   es la sorpresa que más molesta cuando aparece al final: el cliente ya cerró
+   pensando un número y le llega otro. Si cambias esto, cámbialo en los tres.
+
+   Los descuentos son todos del 33% sobre `originalPrice`. Si mueves un precio,
+   recalcula: un "40% OFF" que no da 40% al dividir es un número que el cliente
+   puede comprobar en diez segundos. */
+const SIN_DOMINIO = {
+  label: "Dominio y hosting",
+  included: false,
+  note: "Se cotiza aparte",
+} as const;
+
+const NOTA_PRECIO = "MXN · Pago único · Sin dominio ni hosting";
+
 export const paquetes: Paquete[] = [
   {
     id: "landing",
     name: "Landing Page",
     subtitle: "Presencia rápida y efectiva",
-    price: "$2,999",
-    originalPrice: "$4,999",
-    discountLabel: "40% OFF",
-    priceNote: "MXN · Pago único",
+    price: "$4,000",
+    originalPrice: "$5,999",
+    discountLabel: "33% OFF",
+    priceNote: NOTA_PRECIO,
     highlight: false,
     idealFor: "Negocios que necesitan presencia digital inmediata con alta conversión.",
     badge: undefined,
@@ -63,21 +79,21 @@ export const paquetes: Paquete[] = [
       { label: "Formulario de contacto", included: true },
       { label: "Integración WhatsApp", included: true },
       { label: "Optimización móvil", included: true },
-      { label: "Dominio y hosting (opcional)", included: true, note: "Costo adicional" },
       { label: "Entrega en 5–7 días", included: true },
       { label: "Panel administrativo", included: false },
       { label: "Ecommerce", included: false },
       { label: "SEO avanzado", included: false },
+      SIN_DOMINIO,
     ],
   },
   {
     id: "institucional",
     name: "Web Institucional",
     subtitle: "Presencia corporativa completa",
-    price: "$5,999",
-    originalPrice: "$9,999",
-    discountLabel: "40% OFF",
-    priceNote: "MXN · Pago único",
+    price: "$7,999",
+    originalPrice: "$11,999",
+    discountLabel: "33% OFF",
+    priceNote: NOTA_PRECIO,
     highlight: false,
     idealFor: "Empresas y negocios establecidos que requieren presencia corporativa.",
     gradient: "from-violet-50 to-purple-50",
@@ -93,17 +109,17 @@ export const paquetes: Paquete[] = [
       { label: "Optimización de velocidad", included: true },
       { label: "Ecommerce", included: false },
       { label: "Pasarela de pago", included: false },
-      { label: "Inventario", included: false },
+      SIN_DOMINIO,
     ],
   },
   {
     id: "ecommerce-basico",
     name: "Ecommerce Básico",
     subtitle: "Vende sin pasarela de pago",
-    price: "$8,999",
-    originalPrice: "$14,999",
-    discountLabel: "40% OFF",
-    priceNote: "MXN · Pago único",
+    price: "$12,999",
+    originalPrice: "$19,499",
+    discountLabel: "33% OFF",
+    priceNote: NOTA_PRECIO,
     highlight: false,
     idealFor: "Negocios que quieren vender en línea sin complicaciones de pago digital.",
     badge: "Más vendido",
@@ -121,23 +137,50 @@ export const paquetes: Paquete[] = [
       { label: "Galería de productos", included: true },
       { label: "Pasarela de pago", included: false },
       { label: "Gestión de usuarios", included: false },
-      { label: "Dashboard avanzado", included: false },
+      SIN_DOMINIO,
+    ],
+  },
+  {
+    id: "sistema-reservas",
+    name: "Sistema de Reservas",
+    subtitle: "Tu agenda, sin mensualidad",
+    price: "$19,999",
+    originalPrice: "$29,999",
+    discountLabel: "33% OFF",
+    priceNote: NOTA_PRECIO,
+    highlight: true,
+    idealFor:
+      "Negocios que agendan por cita —barberías, spas, estéticas, clínicas— y pierden citas por no-shows.",
+    badge: "Recomendado",
+    badgeColor: "bg-primary-100 text-primary-700",
+    gradient: "from-primary-800 to-primary-900",
+    accentColor: "text-white",
+    cta: "Solicitar este paquete",
+    features: [
+      { label: "Agenda en línea con confirmación", included: true },
+      { label: "Anticipo por transferencia", included: true, note: "Sin comisión" },
+      { label: "Panel de agenda para el negocio", included: true },
+      { label: "Control de no-shows por cliente", included: true },
+      { label: "Servicios de duración variable", included: true },
+      { label: "Varios empleados o estaciones", included: true },
+      { label: "Recordatorios y alta en calendario", included: true },
+      { label: "Sitio público con tus servicios", included: true },
+      { label: "Cobro con tarjeta", included: false, note: "Opcional, se cotiza" },
+      SIN_DOMINIO,
     ],
   },
   {
     id: "ecommerce-avanzado",
     name: "Ecommerce Avanzado",
     subtitle: "Tienda online completa",
-    price: "$17,999",
-    originalPrice: "$29,999",
-    discountLabel: "40% OFF",
-    priceNote: "MXN · Pago único",
-    highlight: true,
+    price: "$24,999",
+    originalPrice: "$37,499",
+    discountLabel: "33% OFF",
+    priceNote: NOTA_PRECIO,
+    highlight: false,
     idealFor: "Tiendas online que necesitan gestión completa y pagos en línea.",
-    badge: "Recomendado",
-    badgeColor: "bg-primary-100 text-primary-700",
-    gradient: "from-primary-800 to-primary-900",
-    accentColor: "text-white",
+    gradient: "from-sky-50 to-blue-50",
+    accentColor: "text-sky-700",
     cta: "Solicitar este paquete",
     features: [
       { label: "Pasarela de pago integrada", included: true },
@@ -148,8 +191,8 @@ export const paquetes: Paquete[] = [
       { label: "Órdenes y seguimiento", included: true },
       { label: "Correos automáticos", included: true },
       { label: "Seguridad avanzada", included: true },
-      { label: "Gestión avanzada", included: true },
       { label: "SEO optimizado", included: true },
+      SIN_DOMINIO,
     ],
   },
   {
@@ -157,7 +200,7 @@ export const paquetes: Paquete[] = [
     name: "Software Personalizado",
     subtitle: "Solución empresarial a medida",
     price: "Cotización",
-    priceNote: "personalizada",
+    priceNote: "personalizada · sin dominio ni hosting",
     highlight: false,
     idealFor: "Empresas con necesidades específicas que requieren soluciones únicas.",
     badge: "Empresarial",
@@ -173,9 +216,9 @@ export const paquetes: Paquete[] = [
       { label: "Seguridad enterprise", included: true },
       { label: "APIs documentadas", included: true },
       { label: "Base de datos optimizada", included: true },
-      { label: "Panel administrativo", included: true },
       { label: "Soporte y mantenimiento", included: true },
       { label: "Capacitación al equipo", included: true },
+      SIN_DOMINIO,
     ],
   },
 ];
@@ -185,6 +228,7 @@ export interface ComparativaRow {
   landing: string | boolean;
   institucional: string | boolean;
   ecommerceBasico: string | boolean;
+  reservas: string | boolean;
   ecommerceAvanzado: string | boolean;
   softwarePersonalizado: string | boolean;
 }
@@ -195,6 +239,7 @@ export const comparativaData: ComparativaRow[] = [
     landing: "1",
     institucional: "Hasta 6",
     ecommerceBasico: "Ilimitadas",
+    reservas: "Hasta 6",
     ecommerceAvanzado: "Ilimitadas",
     softwarePersonalizado: "Ilimitadas",
   },
@@ -203,14 +248,34 @@ export const comparativaData: ComparativaRow[] = [
     landing: false,
     institucional: "Básico",
     ecommerceBasico: "Básico",
+    reservas: "Agenda",
     ecommerceAvanzado: "Completo",
     softwarePersonalizado: "Enterprise",
+  },
+  {
+    feature: "Agenda y reservas en línea",
+    landing: false,
+    institucional: false,
+    ecommerceBasico: false,
+    reservas: true,
+    ecommerceAvanzado: false,
+    softwarePersonalizado: true,
+  },
+  {
+    feature: "Anticipo sin comisión",
+    landing: false,
+    institucional: false,
+    ecommerceBasico: false,
+    reservas: true,
+    ecommerceAvanzado: false,
+    softwarePersonalizado: true,
   },
   {
     feature: "Ecommerce",
     landing: false,
     institucional: false,
     ecommerceBasico: true,
+    reservas: false,
     ecommerceAvanzado: true,
     softwarePersonalizado: true,
   },
@@ -219,6 +284,7 @@ export const comparativaData: ComparativaRow[] = [
     landing: false,
     institucional: false,
     ecommerceBasico: false,
+    reservas: "Opcional",
     ecommerceAvanzado: true,
     softwarePersonalizado: true,
   },
@@ -227,6 +293,7 @@ export const comparativaData: ComparativaRow[] = [
     landing: "Básico",
     institucional: "Básico",
     ecommerceBasico: "Básico",
+    reservas: "Básico",
     ecommerceAvanzado: "Avanzado",
     softwarePersonalizado: "Avanzado",
   },
@@ -235,6 +302,7 @@ export const comparativaData: ComparativaRow[] = [
     landing: "30 días",
     institucional: "60 días",
     ecommerceBasico: "60 días",
+    reservas: "90 días",
     ecommerceAvanzado: "90 días",
     softwarePersonalizado: "Personalizado",
   },
@@ -243,6 +311,7 @@ export const comparativaData: ComparativaRow[] = [
     landing: "Media",
     institucional: "Alta",
     ecommerceBasico: "Alta",
+    reservas: "Muy alta",
     ecommerceAvanzado: "Muy alta",
     softwarePersonalizado: "Total",
   },
@@ -251,8 +320,20 @@ export const comparativaData: ComparativaRow[] = [
     landing: false,
     institucional: "Media",
     ecommerceBasico: "Media",
+    reservas: "Alta",
     ecommerceAvanzado: "Alta",
     softwarePersonalizado: "Enterprise",
+  },
+  /* Va al final de la tabla a propósito: es lo único que NINGÚN paquete
+     incluye, y una fila entera de "no" se lee de un golpe. */
+  {
+    feature: "Dominio y hosting",
+    landing: false,
+    institucional: false,
+    ecommerceBasico: false,
+    reservas: false,
+    ecommerceAvanzado: false,
+    softwarePersonalizado: false,
   },
 ];
 
@@ -372,12 +453,17 @@ export const faqData = [
   {
     question: "¿Cuánto tarda en completarse un proyecto?",
     answer:
-      "Depende del tipo de proyecto. Una Landing Page puede estar lista en 5–7 días. Un sitio institucional toma 2–3 semanas. Un ecommerce básico de 3–4 semanas y uno avanzado de 6–8 semanas. Proyectos de software personalizado se estiman en la reunión inicial.",
+      "Depende del tipo de proyecto. Una Landing Page puede estar lista en 5–7 días. Un sitio institucional toma 2–3 semanas. Un ecommerce básico de 3–4 semanas y uno avanzado de 6–8 semanas. El Sistema de Reservas toma 3–4 semanas. Proyectos de software personalizado se estiman en la reunión inicial.",
   },
   {
     question: "¿Los paquetes incluyen dominio y hosting?",
     answer:
-      "Los paquetes no incluyen dominio y hosting por defecto, ya que existen múltiples opciones según tus necesidades. Sin embargo, te asesoramos para elegir la mejor opción y podemos gestionar la contratación como parte del servicio.",
+      "No. Ningún paquete incluye dominio ni hosting: son servicios de terceros que se contratan a nombre tuyo, para que la propiedad del dominio quede en tus manos y no en las nuestras. Como referencia, un dominio .com o .mx ronda los $200–500 MXN al año y el hosting va de $0 a $400 MXN al mes según el tipo de proyecto (una landing puede quedar en un plan gratuito; un ecommerce con base de datos no). Te asesoramos para elegir, podemos gestionar la contratación por ti como parte del lanzamiento, y si ya tienes dominio o hosting propios los usamos sin problema.",
+  },
+  {
+    question: "¿Por qué el Sistema de Reservas cuesta más que un sitio web?",
+    answer:
+      "Porque no es un sitio, es un sistema que opera tu negocio: la agenda vive ahí, el cliente reserva solo, elige servicio y deja anticipo, y tú lo administras desde un panel. Un sitio te presenta; este te trabaja. La comparación honesta no es contra una landing, sino contra plataformas de agenda tipo Booksy o Fresha, que cobran mensualidad para siempre: el nuestro se paga una vez y es tuyo.",
   },
   {
     question: "¿Se puede pagar el proyecto por etapas?",

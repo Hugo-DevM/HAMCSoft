@@ -28,11 +28,11 @@ function CompanyMockup() {
       icon: "🎯",
     },
     {
-      name: "Tornea Cup",
-      status: "Próximamente",
-      statusColor: "bg-sky-100 text-sky-700",
-      meta: "Torneos de fútbol rápido",
-      icon: "⚽",
+      name: "Sistema de Reservas",
+      status: "Activo",
+      statusColor: "bg-green-100 text-green-700",
+      meta: "Agenda y anticipos para negocios por cita",
+      icon: "📅",
     },
   ];
 
@@ -179,14 +179,14 @@ function CompanyMockup() {
         }}
         className="absolute -left-4 bottom-24 bg-white rounded-2xl shadow-lg border border-gray-100 px-4 py-3"
       >
-        <p className="text-[10px] text-gray-400 font-medium">Tornea Cup ⚽</p>
-        <p className="text-sm font-bold text-primary-800">Próximamente</p>
+        <p className="text-[10px] text-gray-400 font-medium">Reservas 📅</p>
+        <p className="text-sm font-bold text-primary-800">Agenda llena</p>
         <div className="flex gap-1 mt-1">
           {[1, 2, 3, 4].map((i) => (
             <div
               key={i}
               className={`h-1.5 w-4 rounded-full ${
-                i <= 1 ? "bg-primary-600" : "bg-gray-200"
+                i <= 3 ? "bg-primary-600" : "bg-gray-200"
               }`}
             />
           ))}

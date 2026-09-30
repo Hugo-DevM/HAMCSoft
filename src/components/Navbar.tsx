@@ -18,7 +18,7 @@ const navLinks = [
     sectionId: "soluciones",
     children: [
       { label: "Fideliza — Fidelización", href: "https://www.fideliza.app/" },
-      { label: "Tornea Cup (Próximamente)", href: "/proximamente" },
+      { label: "Sistema de Reservas", href: "/servicios#paquetes" },
     ],
   },
   { label: "Servicios", href: "/servicios" },

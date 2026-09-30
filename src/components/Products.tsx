@@ -1,39 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Gift,
-  Trophy,
-  CalendarDays,
-  Users,
-  LayoutDashboard,
-  ArrowRight,
-  Sparkles,
-  ChevronRight,
-} from "lucide-react";
-
-const torneaModules = [
-  {
-    icon: LayoutDashboard,
-    name: "Dueños de canchas",
-    desc: "Torneos, inscripciones y cobros en un solo panel",
-  },
-  {
-    icon: CalendarDays,
-    name: "Rol de juegos",
-    desc: "Calendario y horarios generados automáticamente",
-  },
-  {
-    icon: Trophy,
-    name: "Tablas en vivo",
-    desc: "Posiciones, resultados y goleadores al instante",
-  },
-  {
-    icon: Users,
-    name: "Equipos y jugadores",
-    desc: "Registro, plantillas y seguimiento por torneo",
-  },
-];
+import { Gift, ArrowRight, Sparkles, ChevronRight } from "lucide-react";
 
 const products = [
   {
@@ -58,30 +26,6 @@ const products = [
     bgLight: "from-violet-50 to-primary-50",
     accentColor: "text-primary-800",
     borderColor: "border-primary-200",
-  },
-  {
-    id: "tornea-cup",
-    status: "upcoming",
-    statusLabel: "Próximamente",
-    icon: Trophy,
-    name: "Tornea Cup",
-    tagline: "Torneos de fútbol rápido, sin depender de WhatsApp",
-    description:
-      "SaaS para dueños de canchas de fútbol rápido que hoy organizan sus torneos por WhatsApp. Centraliza inscripciones, rol de juegos, resultados y cobros en una plataforma robusta — pensada tanto para el dueño del campo como para los equipos y jugadores que participan.",
-    features: [
-      "Creación y gestión de torneos",
-      "Rol de juegos y calendario automático",
-      "Tabla de posiciones y estadísticas en vivo",
-      "Registro de equipos y jugadores",
-      "Control de inscripciones y pagos",
-      "Portal para participantes con notificaciones",
-    ],
-    cta: "Disponible próximamente",
-    color: "from-emerald-500 to-green-600",
-    bgLight: "from-emerald-50 to-green-50",
-    accentColor: "text-emerald-700",
-    borderColor: "border-emerald-200",
-    modules: torneaModules,
   },
 ];
 
@@ -206,131 +150,86 @@ export default function Products() {
                     </div>
 
                     {/* CTA */}
-                    {product.id === "fidelizacion" ? (
-                      <a
-                        href="https://fideliza.app"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`inline-flex items-center gap-2 text-sm font-bold transition-all duration-200 ${product.accentColor} hover:gap-3`}
-                      >
-                        {product.cta}
-                        <ArrowRight size={15} />
-                      </a>
-                    ) : (
-                      <span
-                        className={`inline-flex items-center gap-2 text-sm font-bold ${product.accentColor}`}
-                      >
-                        ⚽ {product.cta}
-                      </span>
-                    )}
+                    <a
+                      href="https://fideliza.app"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center gap-2 text-sm font-bold transition-all duration-200 ${product.accentColor} hover:gap-3`}
+                    >
+                      {product.cta}
+                      <ArrowRight size={15} />
+                    </a>
                   </div>
 
                   {/* Right — visual */}
                   <div
                     className={`bg-gradient-to-br ${product.bgLight} p-8 lg:p-10 flex flex-col justify-center border-l border-gray-100`}
                   >
-                    {product.id === "fidelizacion" ? (
-                      /* Fidelización visual */
-                      <div className="space-y-4">
-                        <div className="bg-white rounded-2xl p-5 shadow-card border border-white/80">
-                          <div className="flex items-center justify-between mb-4">
-                            <p className="text-xs font-bold text-gray-700">
-                              Fideliza — Panel
-                            </p>
-                            <span className="text-[10px] bg-green-100 text-green-700 font-bold px-2 py-1 rounded-full">
-                              En vivo
+                    {/* Fidelización visual */}
+                    <div className="space-y-4">
+                      <div className="bg-white rounded-2xl p-5 shadow-card border border-white/80">
+                        <div className="flex items-center justify-between mb-4">
+                          <p className="text-xs font-bold text-gray-700">
+                            Fideliza — Panel
+                          </p>
+                          <span className="text-[10px] bg-green-100 text-green-700 font-bold px-2 py-1 rounded-full">
+                            En vivo
+                          </span>
+                        </div>
+                        {[
+                          { name: "Carlos M.", points: 2840, level: "Oro" },
+                          { name: "Ana R.", points: 1420, level: "Plata" },
+                          { name: "Luis P.", points: 680, level: "Bronce" },
+                        ].map((c) => (
+                          <div
+                            key={c.name}
+                            className="flex items-center gap-3 py-2.5 border-b border-gray-50 last:border-0"
+                          >
+                            <div className="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center text-xs font-black text-primary-800">
+                              {c.name[0]}
+                            </div>
+                            <div className="flex-1">
+                              <p className="text-xs font-bold text-gray-800">
+                                {c.name}
+                              </p>
+                              <p className="text-[10px] text-gray-400">
+                                {c.points} puntos
+                              </p>
+                            </div>
+                            <span
+                              className={`text-[9px] font-bold px-2 py-1 rounded-full ${
+                                c.level === "Oro"
+                                  ? "bg-amber-100 text-amber-700"
+                                  : c.level === "Plata"
+                                    ? "bg-gray-100 text-gray-600"
+                                    : "bg-orange-100 text-orange-700"
+                              }`}
+                            >
+                              {c.level}
                             </span>
                           </div>
-                          {[
-                            { name: "Carlos M.", points: 2840, level: "Oro" },
-                            { name: "Ana R.", points: 1420, level: "Plata" },
-                            { name: "Luis P.", points: 680, level: "Bronce" },
-                          ].map((c) => (
-                            <div
-                              key={c.name}
-                              className="flex items-center gap-3 py-2.5 border-b border-gray-50 last:border-0"
-                            >
-                              <div className="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center text-xs font-black text-primary-800">
-                                {c.name[0]}
-                              </div>
-                              <div className="flex-1">
-                                <p className="text-xs font-bold text-gray-800">
-                                  {c.name}
-                                </p>
-                                <p className="text-[10px] text-gray-400">
-                                  {c.points} puntos
-                                </p>
-                              </div>
-                              <span
-                                className={`text-[9px] font-bold px-2 py-1 rounded-full ${
-                                  c.level === "Oro"
-                                    ? "bg-amber-100 text-amber-700"
-                                    : c.level === "Plata"
-                                      ? "bg-gray-100 text-gray-600"
-                                      : "bg-orange-100 text-orange-700"
-                                }`}
-                              >
-                                {c.level}
-                              </span>
-                            </div>
-                          ))}
-                        </div>
-
-                        <div className="grid grid-cols-2 gap-3">
-                          <div className="bg-white rounded-xl p-4 shadow-card border border-white/80">
-                            <p className="text-[10px] text-gray-400 mb-1">
-                              Programas activos
-                            </p>
-                            <p className="text-xl font-black gradient-text">
-                              2
-                            </p>
-                          </div>
-                          <div className="bg-white rounded-xl p-4 shadow-card border border-white/80">
-                            <p className="text-[10px] text-gray-400 mb-1">
-                              Puntos emitidos
-                            </p>
-                            <p className="text-xl font-black gradient-text">
-                              +1,240
-                            </p>
-                          </div>
-                        </div>
+                        ))}
                       </div>
-                    ) : (
-                      /* Tornea Cup visual — features grid */
-                      <div className="space-y-4">
-                        <p className="text-xs font-bold text-gray-500 uppercase tracking-widest">
-                          Todo tu torneo en un solo lugar
-                        </p>
-                        <div className="grid grid-cols-2 gap-3">
-                          {product.modules?.map(
-                            ({ icon: ModIcon, name, desc }) => (
-                              <div
-                                key={name}
-                                className="bg-white rounded-2xl p-4 shadow-card border border-white/80 hover:border-emerald-100 transition-colors"
-                              >
-                                <div className="w-8 h-8 rounded-xl bg-emerald-50 flex items-center justify-center mb-2">
-                                  <ModIcon
-                                    size={16}
-                                    className="text-emerald-600"
-                                  />
-                                </div>
-                                <p className="text-xs font-bold text-gray-800">
-                                  {name}
-                                </p>
-                                <p className="text-[10px] text-gray-400 mt-0.5">
-                                  {desc}
-                                </p>
-                              </div>
-                            ),
-                          )}
+
+                      <div className="grid grid-cols-2 gap-3">
+                        <div className="bg-white rounded-xl p-4 shadow-card border border-white/80">
+                          <p className="text-[10px] text-gray-400 mb-1">
+                            Programas activos
+                          </p>
+                          <p className="text-xl font-black gradient-text">
+                            2
+                          </p>
                         </div>
-                        <div className="bg-white/70 rounded-xl p-3 border border-emerald-100 text-center">
-                          <p className="text-[10px] text-emerald-600 font-semibold">
-                            ⚽ Adiós a organizar torneos por WhatsApp
+                        <div className="bg-white rounded-xl p-4 shadow-card border border-white/80">
+                          <p className="text-[10px] text-gray-400 mb-1">
+                            Puntos emitidos
+                          </p>
+                          <p className="text-xl font-black gradient-text">
+                            +1,240
                           </p>
                         </div>
                       </div>
-                    )}
+                    </div>
                   </div>
                 </div>
               </motion.div>

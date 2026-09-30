@@ -2,28 +2,13 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  Rocket,
-  Bell,
-  ArrowLeft,
-  Sparkles,
-  Trophy,
-  Zap,
-  ShieldCheck,
-} from "lucide-react";
+import { Rocket, Bell, ArrowLeft, Sparkles, Zap, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 const WA_NUMBER = "523222151711";
 
 const coming = [
-  {
-    icon: Trophy,
-    title: "Tornea Cup",
-    description:
-      "SaaS para dueños de canchas de fútbol rápido: crea torneos, genera el rol de juegos, lleva tablas de posiciones en vivo y gestiona equipos, jugadores y pagos — sin depender de WhatsApp.",
-    eta: "Próximamente",
-  },
   {
     icon: Zap,
     title: "App móvil HAMCSoft",

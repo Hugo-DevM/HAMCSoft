@@ -64,7 +64,7 @@ const categories = [
       },
       {
         q: "¿Ofrecen descuentos o promociones?",
-        a: `Sí. Actualmente nuestros paquetes ya incluyen un descuento del 40% sobre el precio regular.\n\nAdemás, si tienes un proyecto urgente, eres un cliente recurrente, o conoces a alguien que contrate con nosotros, podemos ofrecerte condiciones especiales. Pregúntanos directamente.`,
+        a: `Sí. Actualmente nuestros paquetes ya incluyen un descuento del 33% sobre el precio regular.\n\nAdemás, si tienes un proyecto urgente, eres un cliente recurrente, o conoces a alguien que contrate con nosotros, podemos ofrecerte condiciones especiales. Pregúntanos directamente.`,
       },
       {
         q: "¿Se puede pagar en mensualidades?",
@@ -80,7 +80,7 @@ const categories = [
     faqs: [
       {
         q: "¿Qué incluye el soporte post-entrega?",
-        a: `Todos los proyectos incluyen soporte técnico gratuito después de la entrega:\n\n• Landing Page: 30 días.\n• Web Institucional: 60 días.\n• Ecommerce Básico: 60 días.\n• Ecommerce Avanzado: 90 días.\n• Software Personalizado: según contrato.\n\nDurante ese período corregimos sin costo cualquier error funcional directamente atribuible a nuestro desarrollo. Los cambios de diseño o nuevas funcionalidades se cotizan aparte.`,
+        a: `Todos los proyectos incluyen soporte técnico gratuito después de la entrega:\n\n• Landing Page: 30 días.\n• Web Institucional: 60 días.\n• Ecommerce Básico: 60 días.\n• Sistema de Reservas: 90 días.\n• Ecommerce Avanzado: 90 días.\n• Software Personalizado: según contrato.\n\nDurante ese período corregimos sin costo cualquier error funcional directamente atribuible a nuestro desarrollo. Los cambios de diseño o nuevas funcionalidades se cotizan aparte.`,
       },
       {
         q: "¿Qué pasa cuando termina el período de soporte?",
@@ -104,7 +104,7 @@ const categories = [
     faqs: [
       {
         q: "¿Los paquetes incluyen dominio y hosting?",
-        a: `No están incluidos por defecto, ya que cada cliente tiene necesidades distintas. Sin embargo:\n\n• Te asesoramos para elegir el proveedor más adecuado según tu proyecto y presupuesto.\n• Podemos gestionar la contratación del dominio y hosting por ti (como parte del servicio de lanzamiento).\n• Si ya tienes dominio o hosting propios, los usamos sin problema.\n\nLos costos típicos de hosting van desde $50–200 MXN/mes dependiendo del tipo de sitio.`,
+        a: `No. Ningún paquete incluye dominio ni hosting, y no es un extra que se nos olvide mencionar: son servicios de terceros que conviene contratar a tu nombre, para que la propiedad del dominio quede en tus manos y no en las nuestras.\n\nCostos de referencia:\n\n• Dominio .com o .mx: $200–500 MXN al año.\n• Hosting: de $0 a $400 MXN al mes según el proyecto. Una landing puede quedar en un plan gratuito; un ecommerce o un sistema con base de datos, no.\n\nAdemás:\n\n• Te asesoramos para elegir el proveedor según tu proyecto y presupuesto.\n• Podemos gestionar la contratación por ti como parte del lanzamiento.\n• Si ya tienes dominio o hosting propios, los usamos sin problema.`,
       },
       {
         q: "¿Qué plataforma de hosting usan?",

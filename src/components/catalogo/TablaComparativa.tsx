@@ -5,11 +5,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Check, Minus } from "lucide-react";
 import { comparativaData } from "@/data/paquetes";
 
+/* El orden y el `highlight` tienen que seguir a `paquetes` de
+   src/data/paquetes.ts: si ahí se destaca un paquete y aquí otro, la tabla
+   recomienda una cosa y las tarjetas otra. */
 const columns = [
   { key: "landing", label: "Landing Page", short: "Landing" },
   { key: "institucional", label: "Web Institucional", short: "Institucional" },
   { key: "ecommerceBasico", label: "Ecommerce Básico", short: "E-comm. Básico" },
-  { key: "ecommerceAvanzado", label: "Ecommerce Avanzado", short: "E-comm. Avanzado", highlight: true },
+  { key: "reservas", label: "Sistema de Reservas", short: "Reservas", highlight: true },
+  { key: "ecommerceAvanzado", label: "Ecommerce Avanzado", short: "E-comm. Avanzado" },
   { key: "softwarePersonalizado", label: "Software a Medida", short: "Software" },
 ];
 
