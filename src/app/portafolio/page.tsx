@@ -5,7 +5,7 @@ import PortafolioContent from "./PortafolioContent";
 import { proyectos } from "@/data/proyectos";
 
 export const metadata: Metadata = {
-  title: "Portafolio — Proyectos y casos de éxito | HAMCSoft",
+  title: "Portafolio — Proyectos y casos de éxito",
   description:
     "Sitios web, tiendas en línea y sistemas que HAMCSoft ha desarrollado para negocios de Puerto Vallarta y México. Visita los proyectos en vivo.",
   alternates: { canonical: "https://hamcsoft.com/portafolio" },

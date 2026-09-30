@@ -61,9 +61,9 @@ export const metadata: Metadata = {
       "Creamos sitios web profesionales, tiendas en línea, landing pages y aplicaciones web para negocios modernos.",
     images: ["/hamcsoft.png"],
   },
-  alternates: {
-    canonical: "https://hamcsoft.com",
-  },
+  // Sin `alternates.canonical` aquí a propósito: el canonical del layout raíz
+  // lo heredan todas las páginas que no declaren el suyo, y eso las marca como
+  // duplicados del home ante Google. Cada page.tsx define el suyo.
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "48x48" },

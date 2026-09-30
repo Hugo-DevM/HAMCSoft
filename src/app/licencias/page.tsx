@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Licencias — HAMCSoft",
+  title: "Licencias",
   description:
     "Información sobre las licencias de software de código abierto utilizadas en el desarrollo del sitio web y los productos de HAMCSoft.",
   alternates: { canonical: "https://hamcsoft.com/licencias" },

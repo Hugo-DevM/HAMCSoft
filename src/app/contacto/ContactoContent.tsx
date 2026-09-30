@@ -62,7 +62,7 @@ const hours = [
   { day: "Domingo", time: "Cerrado" },
 ];
 
-export default function ContactoPage() {
+export default function ContactoContent() {
   const [form, setForm] = useState({
     name: "",
     email: "",

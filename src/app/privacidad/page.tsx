@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Aviso de Privacidad — HAMCSoft",
+  title: "Aviso de Privacidad",
   description:
     "Conoce cómo HAMCSoft recopila, usa y protege tu información personal conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP).",
   alternates: { canonical: "https://hamcsoft.com/privacidad" },

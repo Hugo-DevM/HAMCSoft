@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Términos de Uso — HAMCSoft",
+  title: "Términos de Uso",
   description:
     "Lee los Términos de Uso de HAMCSoft. Condiciones que rigen el uso del sitio web y la contratación de nuestros servicios de desarrollo de software.",
   alternates: { canonical: "https://hamcsoft.com/terminos" },

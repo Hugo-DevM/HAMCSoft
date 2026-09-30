@@ -49,7 +49,7 @@ const particles = Array.from({ length: 20 }, (_, i) => ({
   duration: Math.random() * 4 + 3,
 }));
 
-export default function ProximamentePage() {
+export default function ProximamenteContent() {
   const [notified, setNotified] = useState(false);
 
   const handleNotify = () => {

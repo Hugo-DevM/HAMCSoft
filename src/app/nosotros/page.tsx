@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import NosotrosContent from "./NosotrosContent";
 
 export const metadata: Metadata = {
-  title: "Sobre Nosotros — HAMCSoft",
+  title: "Sobre Nosotros",
   description:
     "Conoce al equipo detrás de HAMCSoft. Somos una agencia de desarrollo web con sede en Puerto Vallarta, México, comprometida con hacer crecer los negocios en línea.",
   alternates: { canonical: "https://hamcsoft.com/nosotros" },

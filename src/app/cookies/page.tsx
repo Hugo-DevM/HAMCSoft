@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Política de Cookies — HAMCSoft",
+  title: "Política de Cookies",
   description:
     "Conoce qué cookies utiliza HAMCSoft, para qué sirven y cómo puedes gestionarlas o desactivarlas en tu navegador.",
   alternates: { canonical: "https://hamcsoft.com/cookies" },

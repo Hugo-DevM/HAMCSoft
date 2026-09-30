@@ -174,7 +174,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
   );
 }
 
-export default function AyudaPage() {
+export default function AyudaContent() {
   const [activeCategory, setActiveCategory] = useState("proceso");
   const current = categories.find((c) => c.id === activeCategory)!;
 

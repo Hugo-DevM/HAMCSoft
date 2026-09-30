@@ -12,7 +12,7 @@ import CTACatalogo from "@/components/catalogo/CTACatalogo";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Catálogo de Servicios — HAMCSoft | Agencia de Desarrollo Web",
+  title: "Catálogo de Servicios — Agencia de Desarrollo Web",
   description:
     "Conoce todos nuestros servicios de desarrollo web: landing pages, ecommerce, aplicaciones web, automatización y más. Precios claros y transparentes.",
   keywords: [
