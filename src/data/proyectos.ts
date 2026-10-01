@@ -5,6 +5,7 @@ import {
   Scale,
   Smile,
   Scissors,
+  Flower2,
 } from "lucide-react";
 
 export type CategoriaProyecto =
@@ -244,6 +245,44 @@ export const proyectos: Proyecto[] = [
     accent: {
       gradient: "from-amber-700 via-amber-500 to-orange-400",
       chip: "bg-amber-50 text-amber-700 border-amber-100",
+    },
+  },
+  {
+    id: "spa",
+    cliente: "Casa Vapor",
+    industria: "Spa urbano · Bienestar",
+    demo: true,
+    titulo: "Reserva de tratamientos por cabina con anticipo y panel",
+    categoria: "Aplicación Web",
+    icon: Flower2,
+    descripcion:
+      "Sitio de un spa urbano donde el cliente elige tratamiento, ve los horarios en que hay cabina libre y reserva solo, dejando anticipo por transferencia en los rituales largos; el spa administra el día desde un panel privado con la agenda, los anticipos por revisar y el ingreso previsto.",
+    reto: "Un spa no vende cortes de media hora: vende tratamientos de 30 a 120 minutos que ocupan una cabina y a una terapeuta durante todo ese tiempo. Apartar por mensaje significa calcular a mano si el ritual de dos horas cabe antes del siguiente masaje, y una cancelación de último minuto deja la cabina y a la terapeuta parados sin costo para nadie más que el negocio.",
+    solucion:
+      "Construimos la agenda sobre la duración real de cada tratamiento y la disponibilidad de cada cabina: solo se ofrecen los bloques donde el ritual completo cabe, así no se empalman servicios ni se parte una cabina a la mitad. Los tratamientos largos piden anticipo por transferencia SPEI el cliente sube su comprobante, el spa lo verifica desde el panel y la reserva queda confirmada con folio; si el anticipo no llega a tiempo, el bloque se libera solo. En el panel la casa ve las citas del día, los anticipos pendientes, el tiempo muerto entre reservas y el ingreso previsto.",
+    url: "https://spa.hamcsoft.com/",
+    dominio: "spa.hamcsoft.com",
+    imagen: "/portafolio/spa.webp",
+    imagenSecundaria: "/portafolio/spa-panel.webp",
+    imagenSecundariaLabel: "Panel de la casa · agenda, anticipos e ingreso",
+    urlSecundaria: "https://spa.hamcsoft.com/panel",
+    tecnologias: ["Astro", "TypeScript", "Supabase", "PostgreSQL"],
+    entregables: [
+      "Reserva en línea por tratamiento",
+      "Disponibilidad real por cabina y duración",
+      "Anticipo por transferencia, sin comisión",
+      "Revisión de comprobantes desde el panel",
+      "Liberación automática si no llega el anticipo",
+      "Catálogo de tratamientos y precios",
+      "Panel con tiempo muerto e ingreso previsto",
+      "Confirmación por WhatsApp con folio",
+      "Diseño 100% responsive",
+    ],
+    anio: "2026",
+    destacado: true,
+    accent: {
+      gradient: "from-stone-800 via-stone-600 to-amber-600",
+      chip: "bg-stone-100 text-stone-700 border-stone-200",
     },
   },
 ];
